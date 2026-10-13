@@ -74,6 +74,13 @@ nav .btn{padding:10px 20px;font-size:14px}
 .phone{width:220px;height:440px;border-radius:36px;padding:10px;left:50%;top:50%;margin:-220px 0 0 -110px;z-index:3}
 .phone .scr{width:100%;height:100%;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(160deg,#ff7a45,#e8312f 55%,#6b1d4b)}
 .phone .scr:before{content:"";position:absolute;top:8px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:12px;background:#000;z-index:2}
+.hbot{left:38%;top:50%;width:250px;margin:-215px 0 0 -125px;z-index:6;background:none;border:0;cursor:pointer;padding:0;transition:none!important;-webkit-tap-highlight-color:transparent}
+.hbot:before{content:"";position:absolute;left:50%;top:42%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.5),rgba(255,176,32,0) 66%);animation:rbg 2.6s ease-in-out infinite;pointer-events:none}
+.hbot .rbh{width:250px;height:312px;filter:drop-shadow(0 26px 30px rgba(0,0,0,.6))}
+.hbot:hover .rbh{scale:1.05}
+.htag{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);white-space:nowrap;background:var(--lime);color:var(--ink);font:700 14px var(--b);padding:11px 18px;border-radius:99px;box-shadow:0 12px 26px rgba(0,0,0,.4)}
+.rb.inhero .rb-btn,.rb.inhero .rb-lab{opacity:0;pointer-events:none;visibility:hidden}
+.phone{left:auto!important;right:0;margin:-220px 0 0 0!important}
 .rbar{position:absolute;left:14px;right:14px;top:40px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}.rbar i{display:block;height:100%;width:0;background:#fff;animation:rbar 5s linear infinite}
 @keyframes rbar{to{width:100%}}
 .rside{position:absolute;right:12px;bottom:90px;display:grid;gap:14px}.rside i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:block}.rside i:first-child{animation:pop 1.8s infinite}
@@ -227,7 +234,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 .rb-lab{position:absolute;left:92px;bottom:38px;white-space:nowrap;background:var(--lime);color:var(--ink);font:700 13px var(--b);padding:9px 14px 9px 12px;border-radius:99px;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;gap:8px;align-items:center;transition:opacity .3s;pointer-events:none}
 .rb-lab:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);animation:ping 2s infinite}
 .rb-bub.on~.rb-lab,.rb.open .rb-lab{opacity:0}
-.rb-bub{position:absolute;left:64px;bottom:128px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:.3s}
+.rb-bub{position:absolute;left:64px;bottom:128px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:opacity .3s,transform .3s}
 .rb-bub.on{opacity:1;transform:none;pointer-events:auto}
 .rb-bub b{font:700 15px var(--h);display:block;margin-bottom:4px}
 .rb-bub .row{display:flex;gap:8px;margin-top:10px}
@@ -259,6 +266,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
  .hero .wrap,.ct,.pick,.quiz,.mc{grid-template-columns:1fr}
  .hero{min-height:auto;padding-top:110px}
  .scene{height:480px;max-width:400px;margin:0 auto;width:100%}
+ .hbot{left:36%;width:190px;margin:-170px 0 0 -95px}.hbot .rbh{width:190px;height:238px}.hbot:before{width:260px;height:260px;margin:-130px 0 0 -130px}.htag{font-size:13px;padding:9px 14px}.phone{width:170px;height:340px;margin-top:-170px!important}.chip.c1,.chip.c3{display:none}
  .brow{width:260px}.tilt{right:-4px}.c1{right:-4px}
  .sv{grid-template-columns:1fr}.sc1,.sc2,.sc3,.sc4,.sc5,.sc6{grid-column:auto}
  .s{min-height:auto}.s ul{max-height:none;opacity:1;margin-top:16px}
@@ -291,7 +299,8 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
       <div class="cta rv" style="--d:.24s"><a class="btn lime" data-wa="Hi, I found your website and would like to talk about a project." data-mag><svg viewBox="0 0 24 24"><use href="#wai"/></svg>Chat on WhatsApp</a><a class="btn line" href="#work" data-mag>See our work</a></div>
       <div class="who rv" style="--d:.32s"><div class="mono">AS</div><div><b>Jarvis.SI</b>Freelance design & content studio, with a small team behind it</div></div>
     </div>
-    <div class="scene" id="scene" aria-hidden="true">
+    <div class="scene" id="scene">
+      <button class="hbot" id="heroBot" type="button" aria-label="Chat with Jarvis, tell me what you need and get your demo for free"><div class="rbh" id="heroHead"></div><span class="htag">Tap me and get your <b>free demo</b></span></button>
       <div class="dev brow" data-d="14"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><i class="t"></i><i style="width:90%"></i><i style="width:60%"></i><i class="bt"></i><div class="bl"><i></i><i></i><i></i></div></div></div>
       <div class="dev phone" data-d="26"><div class="scr"><div class="rbar"><i></i></div><div class="big">Your product.<br>Their next<br>obsession.</div><div class="rside"><i></i><i></i><i></i></div><div class="rtxt"><i class="av"></i><i></i><i></i></div></div></div>
       <div class="dev tilt" data-d="40"><div class="g"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
@@ -386,8 +395,8 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 <a class="fwa" data-wa="Hi, I would like to talk about a project." aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><use href="#wai"/></svg></a>
 
 <div class="rb" id="rb">
-  <div class="rb-bub" id="rbBub"><b>Hi, I'm Jarvi!</b>Looking for an app, website or content for your business? Tell me what you need.<div class="row"><button class="y" id="rbYes">Let's chat</button><button class="n" id="rbNo">Not now</button></div></div>
-  <button class="rb-btn" id="rbBtn" aria-label="Chat with Jarvi, our helper" aria-expanded="false"><div class="rbh" id="rbHead"><svg viewBox="0 0 120 150" aria-hidden="true">
+  <div class="rb-bub" id="rbBub"><b>Hi, I'm Jarvis!</b>Tell me what you need and get your demo for free.<div class="row"><button class="y" id="rbYes">Get my free demo</button><button class="n" id="rbNo">Not now</button></div></div>
+  <button class="rb-btn" id="rbBtn" aria-label="Chat with Jarvis, our helper" aria-expanded="false"><div class="rbh" id="rbHead"><svg viewBox="0 0 120 150" aria-hidden="true">
 <defs>
 <linearGradient id="gR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e53935"/><stop offset=".6" stop-color="#b3151b"/><stop offset="1" stop-color="#6d0b12"/></linearGradient>
 <linearGradient id="gG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#e9a82c"/><stop offset="1" stop-color="#a86a0d"/></linearGradient>
@@ -410,10 +419,10 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 <g clip-path="url(#cR)"><g class="gl"><ellipse cx="78" cy="69" rx="13" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="78" cy="69" rx="9" ry="2.4" fill="#fff"/></g></g>
 <circle cx="24" cy="30" r="2" fill="#fff3c4" opacity=".7"/><circle cx="96" cy="30" r="2" fill="#fff3c4" opacity=".7"/>
 </svg></div></button>
-  <span class="rb-lab">Chat with Jarvi</span>
+  <span class="rb-lab">Chat with Jarvis</span>
 </div>
-<div class="rb-p" id="rbP" role="dialog" aria-label="Chat with Jarvi">
-  <div class="rb-h"><i>J</i><div><b>Jarvi</b><small>Jarvis.SI helper</small></div><button id="rbX" aria-label="Close chat">×</button></div>
+<div class="rb-p" id="rbP" role="dialog" aria-label="Chat with Jarvis">
+  <div class="rb-h"><i>J</i><div><b>Jarvis</b><small>Jarvis.SI helper</small></div><button id="rbX" aria-label="Close chat">×</button></div>
   <div class="rb-m" id="rbM" aria-live="polite"></div>
   <div class="rb-c" id="rbC"></div>
   <div class="rb-n">Your chat is shared with the Jarvis.SI team so we can get back to you. Please don't share passwords or card details.</div>
@@ -515,25 +524,29 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
 
 /* robot helper */
 (function(){
- const rb=$('rb'),head=$('rbHead'),bot=head,bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
+ const rb=$('rb'),head=$('rbHead'),hh=$('heroHead'),hb=$('heroBot'),bot=head,bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
+ hh.innerHTML=head.innerHTML;let inHero=true;
  let greeted=false,isOpen=false,started=false,busy=false,done=false,step=0,raf=0,users=0,sentAt=0;
  try{greeted=sessionStorage.getItem('rbg')==='1'}catch(e){}
  const data={},log=[];
  /* eyes follow the cursor */
- function look(x,y){const r=head.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260),nx=dx/d*m,ny=dy/d*m;
-  if(!raf)raf=requestAnimationFrame(()=>{raf=0;head.style.transform=`perspective(300px) rotateY(${nx*16}deg) rotateX(${-ny*11}deg)`;head.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*6}px,${ny*1.6}px)`)})}
- addEventListener('pointermove',e=>{look(e.clientX,e.clientY);if(greeted||isOpen)return;const r=bot.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<150)greet()},{passive:true});
+ function look(x,y){const hs=[head,hh];for(const hd of hs){const r=hd.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260),nx=dx/d*m,ny=dy/d*m;
+  hd._n=[nx,ny]}
+  if(!raf)raf=requestAnimationFrame(()=>{raf=0;hs.forEach(hd=>{const [nx,ny]=hd._n;hd.style.transform=`perspective(300px) rotateY(${nx*16}deg) rotateX(${-ny*11}deg)`;hd.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*6}px,${ny*1.6}px)`)})})}
+ addEventListener('pointermove',e=>{look(e.clientX,e.clientY);if(greeted||isOpen)return;const r=(inHero?hh:head).getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<(inHero?220:150))greet()},{passive:true});
  addEventListener('pointerdown',e=>look(e.clientX,e.clientY),{passive:true});
- function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}bub.classList.add('on');bot.classList.add('wave');setTimeout(()=>bot.classList.remove('wave'),1800);setTimeout(()=>bub.classList.remove('on'),14000)}
- setTimeout(greet,5000);
+ function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}place();bub.classList.add('on');[head,hh].forEach(h=>{h.classList.add('wave');setTimeout(()=>h.classList.remove('wave'),1800)});setTimeout(()=>bub.classList.remove('on'),14000)}
+ function place(){if(inHero){const a=hh.getBoundingClientRect(),b=rb.getBoundingClientRect(),w=Math.min(236,innerWidth-24);let l=a.right-b.left-30;if(a.right+w-30>innerWidth-12)l=innerWidth-12-w-b.left;if(innerWidth<700)l=Math.max(12-b.left,(innerWidth-w)/2-b.left);bub.style.left=l+'px';bub.style.bottom=(b.bottom-a.top-20)+'px';bub.style.transformOrigin='bottom left'}else{bub.style.left='';bub.style.bottom=''}}
+ if('IntersectionObserver' in window)new IntersectionObserver(e=>{inHero=e[0].isIntersecting;rb.classList.toggle('inhero',inHero);bub.classList.remove('on')},{threshold:.25}).observe(document.querySelector('.hero'));rb.classList.add('inhero');
+ setTimeout(greet,1400);
  /* guided chat */
  const SV=["App design","Website","Promo reels","UGC ads","Social content","Business reels","Not sure yet"];
  const FLOW=[
-  {q:"Hi! I'm Jarvi, the Jarvis.SI helper. What can we help you with?",k:'need',c:SV},
+  {q:"Hi! I'm Jarvis, the Jarvis.SI helper. Tell me what you need and get your demo for free. What can we help you with?",k:'need',c:SV},
   {q:"Nice. Tell me a little about your business. What do you do?",k:'business',skip:1},
   {q:"When would you like to get started?",k:'timing',c:["As soon as possible","Within 2 weeks","Within a month","Just exploring"]},
   {q:"Great, almost done. What's your name?",k:'name'}];
- function add(t,w){const d=document.createElement('div');d.className='m '+w;d.textContent=t;M.appendChild(d);M.scrollTop=M.scrollHeight;log.push((w==='u'?'Visitor: ':'Jarvi: ')+t);if(w==='u')users++}
+ function add(t,w){const d=document.createElement('div');d.className='m '+w;d.textContent=t;M.appendChild(d);M.scrollTop=M.scrollHeight;log.push((w==='u'?'Visitor: ':'Jarvis: ')+t);if(w==='u')users++}
  function say(t,cb){busy=true;const ty=document.createElement('div');ty.className='t';ty.innerHTML='<i></i><i></i><i></i>';M.appendChild(ty);M.scrollTop=M.scrollHeight;
   setTimeout(()=>{ty.remove();add(t,'b');busy=false;cb&&cb()},500+Math.min(t.length*10,600))}
  function chips(list){C.innerHTML='';list.forEach(l=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.onclick=()=>answer(l);C.appendChild(b)})}
@@ -554,7 +567,7 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
  addEventListener('pagehide',send);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')send()});
  function open(){isOpen=true;rb.classList.add('open');greeted=true;bub.classList.remove('on');P.classList.add('on');$('rbBtn').setAttribute('aria-expanded','true');if(!started){started=true;ask()}else I.focus()}
  function close(){isOpen=false;rb.classList.remove('open');P.classList.remove('on');$('rbBtn').setAttribute('aria-expanded','false');send()}
- $('rbBtn').onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
+ $('rbBtn').onclick=hb.onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
  F.addEventListener('submit',e=>{e.preventDefault();const v=I.value;I.value='';answer(v)});
 })();
 
