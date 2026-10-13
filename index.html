@@ -90,6 +90,17 @@ nav ul a:hover{color:var(--acc)}
 .meta h3{font-size:22px;margin:6px 0 6px}
 .meta p{font-size:14px;color:var(--mut)}
 .note{margin-top:22px;font-size:13px;color:var(--mut);border:1.5px dashed var(--line);padding:12px 16px;border-radius:12px}
+.pick{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;margin-top:40px}
+.pl{display:flex;flex-direction:column;gap:10px}
+.pb{text-align:left;padding:18px 22px;border-radius:var(--r);border:1.5px solid var(--line);background:var(--card);cursor:pointer;font:600 17px/1.35 Georgia,serif;color:var(--ink);transition:.25s}
+.pb:hover{border-color:var(--ink);transform:translateX(6px)}
+.pb.on{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateX(10px)}
+.pr{background:var(--ink);color:var(--bg);border-radius:var(--r);padding:36px;min-height:300px}
+.pr h3{font-size:30px;margin-bottom:12px}.pr p{color:#bdb8aa;margin-bottom:18px}
+.pr ol{margin:0 0 24px 20px;display:grid;gap:8px}
+.pr .btn{border-color:var(--bg);color:var(--bg)}
+.btn.wa{border-color:#25a244;color:#157a31}.btn.wa:hover{background:#25a244;color:#fff;border-color:#25a244}
+.pr.sw{animation:pin .4s ease}
 /* process */
 .proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
 .step{padding:28px 24px;border-right:1.5px solid var(--ink);transition:.3s;cursor:default}
@@ -100,18 +111,6 @@ nav ul a:hover{color:var(--acc)}
 .step h3{font-size:26px;margin:30px 0 10px}
 .step p{font-size:14px;color:var(--mut)}
 /* pricing */
-.price{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
-.pk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;transition:.3s}
-.pk:hover{transform:translateY(-6px)}
-.pk.feat{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.pk .badge{align-self:flex-start;background:var(--acc);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:99px;margin-bottom:12px}
-.pk h3{font-size:28px}
-.pk .p{font:700 32px Georgia,serif;margin:12px 0 4px}
-.pk .p small{font:400 13px Arial;color:var(--mut)}
-.pk ul{list-style:none;margin:18px 0 26px;flex:1}
-.pk li{padding:7px 0;border-bottom:1px solid rgba(128,128,128,.25);font-size:14px}
-.pk li:before{content:"✓ ";color:var(--acc);font-weight:700}
-.pk .btn{justify-content:center}.pk.feat .btn{border-color:var(--bg);color:var(--bg)}
 /* testimonials */
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
 .tq{border:1.5px dashed var(--line);border-radius:var(--r);padding:28px}
@@ -137,7 +136,7 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
 @media(max-width:900px){
  nav ul{display:none}
  .hero .grid,.svc,.contact{grid-template-columns:1fr}
- .work,.price,.tg{grid-template-columns:1fr}
+ .work,.tg,.pick{grid-template-columns:1fr}
  .proc{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
  .stats{grid-template-columns:1fr 1fr}
  .tabs{flex-direction:row;flex-wrap:wrap}.tab{padding:10px 14px;font-size:14px}.tab span{display:none}
@@ -152,8 +151,8 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
 <body>
 <nav><div class="wrap">
   <a href="#top" class="logo">Ayushman<i>.</i>Singh</a>
-  <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li></ul>
-  <a href="#contact" class="btn" style="padding:9px 18px;font-size:14px">Get a quote</a>
+  <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="#help">How we help</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="btn" style="padding:9px 18px;font-size:14px">Talk to us</a>
 </div><div class="prog" id="prog"></div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -161,20 +160,20 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
     <div>
       <span class="eyebrow">Freelance · App · Web · Content</span>
       <h1>I build things people <em>scroll</em>, <span class="rot" id="rot"><span>tap</span></span> and remember.</h1>
-      <p>Apps, websites and short-form content for businesses that want to look sharp and grow online. One freelancer, one point of contact, from idea to published.</p>
-      <div class="cta"><a class="btn pri" href="#contact">Start a project →</a><a class="btn" href="#work">See selected work</a></div>
+      <p>Apps, websites, reels and ads for businesses that want to be noticed online. Tell us what you need on WhatsApp or the form, and we'll come back with ideas and a quote that fits.</p>
+      <div class="cta"><a class="btn pri" href="#contact">Tell us what you need →</a><a class="btn wa" data-wa="Hi, I found your portfolio and would like to talk about a project.">Chat on WhatsApp</a><a class="btn" href="#work">See selected work</a></div>
     </div>
     <div class="portrait rv">
       <img src="assets/photo.jpg" alt="Ayushman Singh">
       <div class="tag t1"><b>●</b> Available for new projects</div>
-      <div class="tag t2">Replies within 24h</div>
+      <div class="tag t2">Quote after a quick chat</div>
     </div>
   </div>
   <div class="stats rv">
     <div class="stat"><b data-n="6">0</b><small>Services under one roof</small></div>
-    <div class="stat"><b data-n="24" data-s="h">0</b><small>Reply time</small></div>
-    <div class="stat"><b data-n="1" data-s=":1">0</b><small>Point of contact, no agency layers</small></div>
-    <div class="stat"><b data-n="100" data-s="%">0</b><small>Revisions until you're happy*</small></div>
+    <div class="stat"><b data-n="24" data-s="h">0</b><small>Typical reply time</small></div>
+    <div class="stat"><b data-n="1" data-s=":1">0</b><small>Person who answers you, not a call centre</small></div>
+    <div class="stat"><b data-n="0">0</b><small>Surprise costs: price agreed before work starts</small></div>
   </div>
 </div>
 <div class="mq"><div id="mq"></div></div>
@@ -198,28 +197,24 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
   <p class="note">Placeholders: each card below marked <b>SAMPLE SLOT</b> is where a real project, screenshot or reel goes. Replace the cards in the <code>WORK</code> list in <code>index.html</code> (see README).</p>
 </div></section>
 
+<section id="help" style="padding-top:20px"><div class="wrap">
+  <span class="eyebrow">How we can help</span>
+  <h2 class="rv">What's holding your business back?</h2>
+  <p class="lead rv">Tap the one that sounds like you. We'll show what we'd do about it.</p>
+  <div class="pick rv">
+    <div class="pl" id="pl"></div>
+    <div class="pr" id="pr"></div>
+  </div>
+</div></section>
+
 <section id="process"><div class="wrap">
   <span class="eyebrow">How we work</span>
   <h2 class="rv">Simple from first message to launch.</h2>
   <div class="proc rv">
-    <div class="step"><b>01</b><h3>Brief</h3><p>A short call or message to understand your business, audience and goals. Free, no pressure.</p></div>
-    <div class="step"><b>02</b><h3>Plan</h3><p>Clear scope, timeline and price in writing before any work starts.</p></div>
-    <div class="step"><b>03</b><h3>Create</h3><p>Drafts shared early so you can steer. Feedback rounds are built into every package.</p></div>
+    <div class="step"><b>01</b><h3>Brief</h3><p>Message us on WhatsApp or fill the form. We learn about your business and goals. Free, no pressure.</p></div>
+    <div class="step"><b>02</b><h3>Plan</h3><p>We tell you the price based on exactly what you need, in writing, before any work starts.</p></div>
+    <div class="step"><b>03</b><h3>Create</h3><p>Drafts shared early so you can steer. Feedback rounds are part of every project.</p></div>
     <div class="step"><b>04</b><h3>Launch</h3><p>Final files, publishing support and a handover so you're never stuck.</p></div>
-  </div>
-</div></section>
-
-<section id="pricing" style="padding-top:20px"><div class="wrap">
-  <span class="eyebrow">Packages</span>
-  <h2 class="rv">Starting points, tailored to you.</h2>
-  <p class="lead rv">Placeholder prices, shown as "from". Every project is quoted to fit, so tell me what you need below.</p>
-  <div class="price rv">
-    <div class="pk"><h3>Content Starter</h3><div class="p">₹ —<small> / from</small></div><small style="color:var(--mut)">Reels, UGC & social posts</small>
-      <ul><li>4 short reels per month</li><li>Script, shoot or edit, captions</li><li>Cover designs</li><li>1 revision round</li></ul><a class="btn" href="#contact" data-pick="Social media content">Get a quote</a></div>
-    <div class="pk feat"><span class="badge">MOST POPULAR</span><h3>Launch Site</h3><div class="p">₹ —<small> / from</small></div><small style="color:#bdb8aa">Website for your business</small>
-      <ul><li>Custom responsive design</li><li>Up to 5 sections/pages</li><li>Contact form & WhatsApp link</li><li>Basic SEO and fast loading</li><li>2 revision rounds</li></ul><a class="btn" href="#contact" data-pick="Web design">Get a quote</a></div>
-    <div class="pk"><h3>App & Brand</h3><div class="p">₹ —<small> / from</small></div><small style="color:var(--mut)">App design or build + launch content</small>
-      <ul><li>UI/UX design for your app</li><li>Interactive prototype</li><li>Launch reel + UGC ad set</li><li>Hand-off for developers</li></ul><a class="btn" href="#contact" data-pick="App development / design">Get a quote</a></div>
   </div>
 </div></section>
 
@@ -238,8 +233,9 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
     <div>
       <span class="eyebrow">Let's talk</span>
       <h2>Have a project?<br>Let's make it <em>happen.</em></h2>
-      <p style="margin-top:18px">Tell me a little about your business and what you need. I'll reply with ideas and a quote within 24 hours.</p>
+      <p style="margin-top:18px">Share a little about your business and what you need. Me or someone from my team will get in touch, talk it through and give you a price that fits your requirements.</p>
       <div class="links">
+        <a data-wa="Hi, I would like to talk about a project." style="cursor:pointer">💬 Chat on WhatsApp</a>
         <a href="mailto:ayushmansingh2606@gmail.com">✉ ayushmansingh2606@gmail.com</a>
         <a href="https://www.linkedin.com/in/ayushman2608" target="_blank" rel="noopener">in linkedin.com/in/ayushman2608</a>
       </div>
@@ -247,14 +243,13 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
     <form id="qf">
       <div class="two"><label>Your name<input name="n" required></label><label>Business<input name="b"></label></div>
       <label>Service<select name="s" id="sel"></select></label>
-      <div class="two"><label>Budget<select name="bd"><option>Not sure yet</option><option>Under ₹10k</option><option>₹10k – ₹30k</option><option>₹30k – ₹1L</option><option>₹1L+</option></select></label>
-      <label>Timeline<select name="t"><option>Flexible</option><option>Within 2 weeks</option><option>Within a month</option></select></label></div>
+      <label>Timeline<select name="t"><option>Flexible</option><option>Within 2 weeks</option><option>Within a month</option></select></label>
       <label>About the project<textarea name="m" rows="4" placeholder="What do you do, and what would you like to achieve?"></textarea></label>
-      <button class="btn" type="submit">Send enquiry →</button>
-      <small style="color:#bdb8aa;text-transform:none;letter-spacing:0">Opens your email app with the details filled in.</small>
+      <button class="btn" type="submit" value="wa">Send on WhatsApp →</button><button class="btn" type="submit" value="mail" style="background:none;border-color:#6b675c">Send by email instead</button>
+      <small style="color:#bdb8aa;text-transform:none;letter-spacing:0">No prices on this site. We quote after hearing what you need.</small>
     </form>
   </div>
-  <footer><span>© 2026 Ayushman Singh</span><span>*Within the agreed scope.</span></footer>
+  <footer><span>© 2026 Ayushman Singh</span><span>Freelance apps, web & content</span></footer>
 </div></section>
 
 <script>
@@ -279,7 +274,7 @@ const words=["tap","share","buy","follow"],rot=document.getElementById('rot');le
 setInterval(()=>{wi=(wi+1)%words.length;const el=rot.firstElementChild;el.style.transform='translateY(-100%)';
  setTimeout(()=>{el.style.transition='none';el.textContent=words[wi];el.style.transform='translateY(100%)';void el.offsetWidth;el.style.transition='';el.style.transform='none'},600)},2200);
 // marquee
-document.getElementById('mq').innerHTML=Array(2).fill(["App design","Web design","Promo reels","UGC ads","Social content","Business reels"].map(x=>x+'<span>✦</span>').join('')).join('');
+document.getElementById('mq').innerHTML=Array(2).fill(["App design","Web design","Promo reels","UGC ads","Social content","Business reels"].map(x=>x+'<span>/</span>').join('')).join('');
 // work
 const COLORS={App:"#1b3bff",Web:"#14130f",Reels:"#ff5a1f",UGC:"#c2185b",Social:"#0a7d5a"};
 /* EDIT HERE: replace these placeholders with real projects. kind: App | Web | Reels | UGC | Social.
@@ -304,12 +299,30 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rv').forEach(x=>io.observe(x));
 document.querySelectorAll('[data-n]').forEach(el=>{const n=+el.dataset.n,s=el.dataset.s||'';let v=0;const st=setInterval(()=>{v+=Math.max(1,Math.ceil(n/40));if(v>=n){v=n;clearInterval(st)}el.textContent=v+s},30)});
 addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
-// package buttons preselect service
 document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{sel.value=b.dataset.pick==="App development / design"?S[0].n:b.dataset.pick==="Web design"?S[1].n:S[4].n}));
-// form -> mailto
+// contact: WhatsApp (set the number below) or email
+const WA_NUMBER=""; // e.g. "919876543210" (country code + number, no + or spaces)
+const EMAIL="ayushmansingh2606@gmail.com";
+function waLink(m){return WA_NUMBER?`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(m)}`:`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry")}&body=${encodeURIComponent(m)}`}
+document.querySelectorAll('[data-wa]').forEach(a=>{a.href=waLink(a.dataset.wa);if(WA_NUMBER){a.target='_blank';a.rel='noopener'}});
+// problem picker
+const P=[
+ {q:"We have a business but barely any online presence",t:"Get found, and look the part",d:"Customers check you online before they call. We make sure what they find is sharp.",s:["A clean, fast website with your services and a contact button","Instagram set up with a consistent look","A first batch of reels introducing your business"],sv:"Web design"},
+ {q:"We post on Instagram but nobody sees it",t:"Content people actually watch",d:"Reach comes from good hooks and steady posting, not luck.",s:["Reel ideas built around your products and customers","Editing, captions and covers handled for you","A monthly posting plan so you stay consistent"],sv:"Promotional Instagram reels"},
+ {q:"We run ads but they don't convert",t:"Ads that feel like a recommendation",d:"People skip polished adverts and trust real-looking ones.",s:["UGC-style videos with a clear hook and offer","Several variations so you can see what works","Vertical formats ready for Instagram and Facebook ads"],sv:"UGC ads"},
+ {q:"I have an app idea but don't know where to start",t:"From idea to something you can tap",d:"We turn a rough idea into screens, then into a prototype or a working app.",s:["Talk through who it's for and what it must do","Design every screen and the flow between them","Build it, or hand clean designs to your developers"],sv:"App development & design"},
+ {q:"Our website looks outdated",t:"A fresh site that works on phones",d:"Most visitors are on mobile. If it's slow or clunky they leave.",s:["Review what's working and what isn't","Redesign with your branding, loading fast","Make enquiries easy: WhatsApp, call, form"],sv:"Web design"}
+];
+const pl=document.getElementById('pl'),pr=document.getElementById('pr');
+P.forEach((p,i)=>{const b=document.createElement('button');b.className='pb';b.textContent=p.q;b.onclick=()=>pick(i);pl.appendChild(b)});
+function pick(i){[...pl.children].forEach((b,j)=>b.classList.toggle('on',i===j));const p=P[i];pr.classList.remove('sw');void pr.offsetWidth;pr.classList.add('sw');
+ pr.innerHTML=`<h3>${p.t}</h3><p>${p.d}</p><ol>${p.s.map(x=>`<li>${x}</li>`).join('')}</ol><a class="btn" id="prb">Talk to us about this →</a>`;
+ const a=document.getElementById('prb');a.href=waLink(`Hi, ${p.q.toLowerCase()}. I'd like to know how you can help (${p.sv}).`);if(WA_NUMBER){a.target='_blank';a.rel='noopener'}}
+pick(0);
 document.getElementById('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));
- const body=`Hi Ayushman,\n\nName: ${f.n}\nBusiness: ${f.b}\nService: ${f.s}\nBudget: ${f.bd}\nTimeline: ${f.t}\n\n${f.m}`;
- location.href='mailto:ayushmansingh2606@gmail.com?subject='+encodeURIComponent('Project enquiry: '+f.s)+'&body='+encodeURIComponent(body)});
+ const m=`Hi Ayushman, I'd like to talk about a project.\n\nName: ${f.n}\nBusiness: ${f.b}\nService: ${f.s}\nTimeline: ${f.t}\n\n${f.m}`;
+ if(e.submitter&&e.submitter.value==='mail'||!WA_NUMBER)location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Project enquiry: '+f.s)}&body=${encodeURIComponent(m)}`;
+ else window.open(waLink(m),'_blank')});
 </script>
 </body>
 </html>
