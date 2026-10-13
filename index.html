@@ -101,6 +101,38 @@ nav ul a:hover{color:var(--acc)}
 .pr .btn{border-color:var(--bg);color:var(--bg)}
 .btn.wa{border-color:#25a244;color:#157a31}.btn.wa:hover{background:#25a244;color:#fff;border-color:#25a244}
 .pr.sw{animation:pin .4s ease}
+/* extras */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:36px;margin-top:44px}
+.quiz h3{font-size:30px;margin-bottom:6px}.quiz .qs{color:var(--mut);font-size:14px;margin-bottom:18px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts button{padding:12px 20px;border-radius:99px;border:1.5px solid var(--ink);background:none;cursor:pointer;font:600 15px inherit;color:var(--ink);transition:.2s}
+.opts button:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
+.qbar{height:4px;background:var(--line);border-radius:4px;margin-bottom:22px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--acc);width:0;transition:.4s}
+.res li{margin:6px 0 6px 18px}.res .btn{margin:18px 10px 0 0}
+.ba{position:relative;height:340px;border-radius:var(--r);overflow:hidden;margin-top:30px;border:1px solid var(--line);user-select:none;touch-action:none;cursor:ew-resize}
+.ba>div{position:absolute;inset:0;display:grid;place-items:center;padding:20px}
+.bef{background:#e6e1d4}.aft{background:linear-gradient(135deg,#ff5a1f,#c2185b);clip-path:inset(0 0 0 50%)}
+.gridm{display:grid;grid-template-columns:repeat(3,70px);gap:6px}
+.gridm i{height:70px;border-radius:6px;display:block}
+.bef .gridm i{background:#cfc9b8}
+.aft .gridm i{background:rgba(255,255,255,.9)}.aft .gridm i:nth-child(2n){background:rgba(20,19,15,.85)}.aft .gridm i:nth-child(3n){background:#ffd7c7}
+.balab{position:absolute;top:14px;font:700 11px/1 Arial;letter-spacing:.12em;background:var(--ink);color:var(--bg);padding:6px 10px;border-radius:99px;z-index:3}
+.ba .l1{left:14px}.ba .r1{right:14px;background:#fff;color:var(--ink)}
+.hd{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:4;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.hd:after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.bacap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:13px;z-index:3;color:var(--ink);font-weight:600}
+.faq{margin-top:34px;border-top:1.5px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:18px 4px}
+.faq summary{cursor:pointer;font:600 20px/1.3 Georgia,serif;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary:after{content:"+";color:var(--acc);font-size:26px;line-height:1;transition:.2s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{color:var(--mut);margin-top:10px;max-width:700px}
+.simple{margin:0 0 18px;padding:12px 16px;background:rgba(255,90,31,.09);border-left:3px solid var(--acc);border-radius:0 10px 10px 0;font-size:15px}
+.fwa{position:fixed;right:18px;bottom:18px;z-index:60;background:#25a244;color:#fff;border-radius:99px;padding:13px 20px;font-weight:700;font-size:15px;box-shadow:0 10px 28px rgba(0,0,0,.25);cursor:pointer;display:flex;gap:8px;align-items:center;transition:.25s}
+.fwa:hover{transform:translateY(-3px) scale(1.04)}
+.fwa:before{content:"";width:9px;height:9px;border-radius:50%;background:#fff;animation:pul 1.6s infinite}
+@keyframes pul{50%{opacity:.3}}
+@media(max-width:900px){.quiz{padding:24px 18px}.ba{height:300px}.pick{grid-template-columns:1fr}}
 /* process */
 .proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
 .step{padding:28px 24px;border-right:1.5px solid var(--ink);transition:.3s;cursor:default}
@@ -207,6 +239,10 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
   </div>
 </div></section>
 
+<section id="find" style="padding-top:20px"><div class="wrap">
+  <div class="quiz rv" id="quiz"></div>
+</div></section>
+
 <section id="process"><div class="wrap">
   <span class="eyebrow">How we work</span>
   <h2 class="rv">Simple from first message to launch.</h2>
@@ -218,6 +254,13 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
   </div>
 </div></section>
 
+<section id="ba" style="padding-top:0"><div class="wrap">
+  <span class="eyebrow">See the difference</span>
+  <h2 class="rv">A page people stop and look at.</h2>
+  <p class="lead rv">Drag the handle. Same business, before and after proper content and design. (Illustration; real before/after examples coming.)</p>
+  <div class="ba rv" id="ba2"><div class="bef"><div class="gridm"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="aft" id="aft"><div class="gridm"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class="balab l1">BEFORE</span><span class="balab r1">AFTER</span><div class="hd" id="hd"></div></div>
+</div></section>
+
 <section id="proof" style="padding-top:20px"><div class="wrap">
   <span class="eyebrow">Kind words</span>
   <h2 class="rv">What clients say.</h2>
@@ -225,6 +268,19 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
     <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
     <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
     <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
+  </div>
+</div></section>
+
+<section id="faq" style="padding-top:20px"><div class="wrap">
+  <span class="eyebrow">Questions</span>
+  <h2 class="rv">Simple answers.</h2>
+  <div class="faq rv">
+    <details><summary>I'm not technical. Can I still work with you?</summary><p>Yes, that's most of our clients. You tell us about your business in your own words, and we handle everything else and explain it plainly.</p></details>
+    <details><summary>How much will it cost?</summary><p>It depends on what you need, so we don't list fixed prices. Message us, tell us your requirements, and you'll get a clear price in writing before any work begins.</p></details>
+    <details><summary>What do I need to give you?</summary><p>Your business name, logo if you have one, photos or products you want shown, and an idea of what you want to achieve. We'll guide you on the rest.</p></details>
+    <details><summary>How long does it take?</summary><p>Reels and posts are usually a few days. Websites and apps take longer depending on size. We'll give you a timeline up front.</p></details>
+    <details><summary>Can I ask for changes?</summary><p>Yes. We share drafts early and make changes with you until it feels right.</p></details>
+    <details><summary>Who will I be talking to?</summary><p>Ayushman or a member of his team, directly. Usually on WhatsApp, whichever is easiest for you.</p></details>
   </div>
 </div></section>
 
@@ -252,21 +308,22 @@ footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-conte
   <footer><span>© 2026 Ayushman Singh</span><span>Freelance apps, web & content</span></footer>
 </div></section>
 
+<a class="fwa" data-wa="Hi, I would like to talk about a project.">Chat on WhatsApp</a>
 <script>
 const S=[
- {n:"App development & design",t:"App design that feels effortless",d:"From idea to a clickable prototype or a working app, designed around how your customers actually use it.",l:["User flows & wireframes","UI design system","Interactive prototype","Developer hand-off","Android / iOS builds","Launch support"]},
- {n:"Web design",t:"Websites that turn visitors into customers",d:"Fast, responsive, good-looking sites for businesses, creators and local brands, built to be found and to convert.",l:["Custom design, not templates","Mobile-first build","Contact & booking forms","Basic SEO set-up","Hosting & domain help","Easy handover"]},
- {n:"Promotional Instagram reels",t:"Reels that promote, not just decorate",d:"Scroll-stopping promos for launches, offers and events, with hooks, pacing and captions tuned for Instagram.",l:["Concept & hook writing","Shooting guidance or editing","Captions, music & trends","Cover frames","Posting-time advice","Batches for the month"]},
- {n:"UGC ads",t:"UGC-style ads that feel real",d:"Authentic, creator-style videos made for paid ads, so your product looks like a recommendation, not a billboard.",l:["Script & angles","Product demo / review style","Multiple hook variants","Vertical 9:16 formats","Ad-ready exports","Testing-friendly sets"]},
- {n:"Social media content",t:"A feed with a point of view",d:"Consistent posts, carousels and stories that look like one brand and keep your audience coming back.",l:["Content calendar","Post & carousel design","Story templates","Caption writing","Brand-consistent look","Monthly refresh"]},
- {n:"Reels for your business",t:"Behind-the-scenes to bestsellers",d:"Reels made around your own business: your team, products, process and customers, turned into content people follow.",l:["Day-in-the-life reels","Product showcase","Customer stories","Offer & launch reels","Reusable templates","Ongoing monthly plan"]}
+ {w:"We design and build the mobile app for your business.",n:"App development & design",t:"App design that feels effortless",d:"From idea to a clickable prototype or a working app, designed around how your customers actually use it.",l:["User flows & wireframes","UI design system","Interactive prototype","Developer hand-off","Android / iOS builds","Launch support"]},
+ {w:"We build you a proper website so customers can find and contact you.",n:"Web design",t:"Websites that turn visitors into customers",d:"Fast, responsive, good-looking sites for businesses, creators and local brands, built to be found and to convert.",l:["Custom design, not templates","Mobile-first build","Contact & booking forms","Basic SEO set-up","Hosting & domain help","Easy handover"]},
+ {w:"Short, eye-catching videos for Instagram that tell people about your offer.",n:"Promotional Instagram reels",t:"Reels that promote, not just decorate",d:"Scroll-stopping promos for launches, offers and events, with hooks, pacing and captions tuned for Instagram.",l:["Concept & hook writing","Shooting guidance or editing","Captions, music & trends","Cover frames","Posting-time advice","Batches for the month"]},
+ {w:"Videos in the style of a real customer review, used for paid ads.",n:"UGC ads",t:"UGC-style ads that feel real",d:"Authentic, creator-style videos made for paid ads, so your product looks like a recommendation, not a billboard.",l:["Script & angles","Product demo / review style","Multiple hook variants","Vertical 9:16 formats","Ad-ready exports","Testing-friendly sets"]},
+ {w:"Regular posts and designs so your page always looks active and professional.",n:"Social media content",t:"A feed with a point of view",d:"Consistent posts, carousels and stories that look like one brand and keep your audience coming back.",l:["Content calendar","Post & carousel design","Story templates","Caption writing","Brand-consistent look","Monthly refresh"]},
+ {w:"Videos about your own shop, team and products, shot to get you followers.",n:"Reels for your business",t:"Behind-the-scenes to bestsellers",d:"Reels made around your own business: your team, products, process and customers, turned into content people follow.",l:["Day-in-the-life reels","Product showcase","Customer stories","Offer & launch reels","Reusable templates","Ongoing monthly plan"]}
 ];
 const tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),sel=document.getElementById('sel');
 S.forEach((s,i)=>{const b=document.createElement('button');b.className='tab';b.innerHTML=s.n+'<span>0'+(i+1)+'</span>';b.onclick=()=>show(i);tabs.appendChild(b);sel.add(new Option(s.n));});
 sel.add(new Option("Not sure, need advice"));
 function show(i){[...tabs.children].forEach((t,j)=>t.classList.toggle('on',i===j));const s=S[i];
  panel.classList.remove('sw');void panel.offsetWidth;panel.classList.add('sw');
- panel.innerHTML=`<h3>${s.t}</h3><p>${s.d}</p><ul>${s.l.map(x=>`<li>${x}</li>`).join('')}</ul><div class="big">0${i+1}</div>`;}
+ panel.innerHTML=`<h3>${s.t}</h3><div class="simple"><b>In simple words:</b> ${s.w}</div><p>${s.d}</p><ul>${s.l.map(x=>`<li>${x}</li>`).join('')}</ul><div class="big">0${i+1}</div>`;}
 show(0);
 // auto-rotate tabs until user interacts
 // rotating word
@@ -319,6 +376,25 @@ function pick(i){[...pl.children].forEach((b,j)=>b.classList.toggle('on',i===j))
  pr.innerHTML=`<h3>${p.t}</h3><p>${p.d}</p><ol>${p.s.map(x=>`<li>${x}</li>`).join('')}</ol><a class="btn" id="prb">Talk to us about this →</a>`;
  const a=document.getElementById('prb');a.href=waLink(`Hi, ${p.q.toLowerCase()}. I'd like to know how you can help (${p.sv}).`);if(WA_NUMBER){a.target='_blank';a.rel='noopener'}}
 pick(0);
+
+// quick quiz
+const Q=[{q:"What kind of business do you have?",o:["Shop / retail","Food & cafe","Service / clinic / salon","Online brand","Something else"]},
+ {q:"What do you want most right now?",o:["More people finding me","More sales from ads","A better-looking page","An app for my customers"]},
+ {q:"Do you already have a website?",o:["No","Yes, but it's old","Yes, it's fine"]}];
+const REC={"More people finding me":["Business reels and promo reels to reach new people","A simple website so they can find you and contact you"],"More sales from ads":["UGC-style ads that look like real recommendations","Promo reels for your offers"],"A better-looking page":["Social media content: posts, stories, a consistent look","Business reels showing your products and team"],"An app for my customers":["App design: screens and a prototype you can try","A launch reel to announce it"]};
+const qz=document.getElementById('quiz');let qi=0,ans=[];
+function qr(){if(qi>=Q.length){const r=(REC[ans[1]]||[]).slice();if(ans[2]==="No"||ans[2]==="Yes, but it's old")r.push("A new website that works well on phones");
+ const msg=`Hi, I have a ${ans[0].toLowerCase()} business. I want: ${ans[1].toLowerCase()}. Website: ${ans[2].toLowerCase()}. Please tell me how you can help.`;
+ qz.innerHTML=`<div class="qbar"><i style="width:100%"></i></div><div class="res"><h3>Here's what we'd suggest</h3><ul>${r.map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn pri" id="qa">Chat about this →</a><a class="btn" id="qre">Start again</a></div>`;
+ const a=document.getElementById('qa');a.href=waLink(msg);if(WA_NUMBER){a.target='_blank';a.rel='noopener'}document.getElementById('qre').onclick=()=>{qi=0;ans=[];qr()};return}
+ const q=Q[qi];qz.innerHTML=`<div class="qbar"><i style="width:${qi/Q.length*100}%"></i></div><h3>Not sure what you need?</h3><p class="qs">Question ${qi+1} of ${Q.length}: ${q.q}</p><div class="opts">${q.o.map(o=>`<button>${o}</button>`).join('')}</div>`;
+ qz.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{ans.push(b.textContent);qi++;qr()})}
+qr();
+// before/after slider
+(function(){const b=document.getElementById('ba2'),a=document.getElementById('aft'),h=document.getElementById('hd');let d=false;
+ const set=x=>{const r=b.getBoundingClientRect();let p=Math.min(100,Math.max(0,(x-r.left)/r.width*100));a.style.clipPath=`inset(0 0 0 ${p}%)`;h.style.left=p+'%'};
+ b.addEventListener('pointerdown',e=>{d=true;set(e.clientX)});addEventListener('pointerup',()=>d=false);addEventListener('pointermove',e=>{if(d)set(e.clientX)});
+ setTimeout(()=>{let t=0;const iv=setInterval(()=>{t+=.06;set(b.getBoundingClientRect().left+b.offsetWidth*(.5+.25*Math.sin(t)));if(t>6.4||d)clearInterval(iv)},16)},1500)})();
 document.getElementById('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));
  const m=`Hi Ayushman, I'd like to talk about a project.\n\nName: ${f.n}\nBusiness: ${f.b}\nService: ${f.s}\nTimeline: ${f.t}\n\n${f.m}`;
  if(e.submitter&&e.submitter.value==='mail'||!WA_NUMBER)location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Project enquiry: '+f.s)}&body=${encodeURIComponent(m)}`;
