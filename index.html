@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ayushman Singh — Freelance Apps, Web & Content</title>
+<meta name="description" content="Freelance app and web designer and short-form content creator. Apps, websites, Instagram reels, UGC ads and social content for growing businesses.">
+<style>
+:root{--bg:#f4f0e8;--ink:#14130f;--mut:#6b675c;--card:#fffdf8;--line:#d9d3c4;--acc:#ff5a1f;--acc2:#1b3bff;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(34px,5vw,60px);margin-bottom:14px}
+.eyebrow{font:600 12px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:block}
+section{padding:90px 0}
+.lead{color:var(--mut);max-width:620px;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:99px;font-weight:600;border:1.5px solid var(--ink);cursor:pointer;background:none;font-size:15px;transition:.25s;color:var(--ink)}
+.btn.pri{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(244,240,232,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Georgia,serif;font-weight:700;font-size:20px}.logo i{color:var(--acc);font-style:normal}
+nav ul{display:flex;gap:26px;list-style:none;font-size:14px;font-weight:500}
+nav ul a:hover{color:var(--acc)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--acc);width:0}
+/* hero */
+.hero{padding:70px 0 40px}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(46px,8vw,104px)}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.rot{display:inline-block;position:relative;height:1.05em;overflow:hidden;vertical-align:bottom;min-width:2ch}
+.rot span{display:block;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.hero p{margin:26px 0 32px;font-size:19px;color:var(--mut);max-width:520px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.portrait{position:relative}
+.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px var(--r) var(--r);display:block;filter:contrast(1.03)}
+.portrait .tag{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.08);animation:float 5s ease-in-out infinite}
+.t1{left:-26px;top:22%}.t2{right:-14px;bottom:20%;animation-delay:-2s}
+@keyframes float{50%{transform:translateY(-10px)}}
+.tag b{color:var(--acc)}
+/* marquee */
+.mq{border-block:1.5px solid var(--ink);overflow:hidden;white-space:nowrap;padding:16px 0;margin-top:50px;background:var(--ink);color:var(--bg)}
+.mq div{display:inline-block;animation:mq 30s linear infinite;font-family:Georgia,serif;font-size:26px;font-style:italic}
+.mq span{margin:0 26px;color:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+.stat{border-top:1.5px solid var(--ink);padding-top:14px}
+.stat b{font:700 44px/1 Georgia,serif;display:block}
+.stat small{color:var(--mut);font-size:13px}
+/* services */
+.svc{display:grid;grid-template-columns:300px 1fr;gap:40px;margin-top:44px}
+.tabs{display:flex;flex-direction:column;gap:6px}
+.tab{text-align:left;padding:16px 18px;border-radius:14px;border:1px solid transparent;background:none;cursor:pointer;font:600 16px/1.3 inherit;color:var(--mut);display:flex;justify-content:space-between;transition:.2s}
+.tab:hover{color:var(--ink);background:rgba(0,0,0,.04)}
+.tab.on{background:var(--ink);color:var(--bg)}
+.tab span{opacity:.5;font-weight:400}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:38px;min-height:340px;position:relative;overflow:hidden}
+.panel h3{font-size:36px;margin-bottom:12px}
+.panel p{color:var(--mut);margin-bottom:22px;max-width:560px}
+.panel ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+.panel li{padding-left:22px;position:relative;font-size:15px}
+.panel li:before{content:"";position:absolute;left:0;top:9px;width:10px;height:2px;background:var(--acc)}
+.panel .big{position:absolute;right:-10px;bottom:-40px;font:700 200px/1 Georgia,serif;color:rgba(255,90,31,.09);pointer-events:none}
+.panel.sw{animation:pin .45s ease}
+@keyframes pin{from{opacity:0;transform:translateY(12px)}}
+/* work */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 30px}
+.chip{padding:8px 16px;border-radius:99px;border:1.5px solid var(--line);background:none;cursor:pointer;font-size:14px;font-weight:500;transition:.2s;color:var(--ink)}
+.chip.on,.chip:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.09)}
+.card.hide{display:none}
+.thumb{aspect-ratio:4/3;display:grid;place-items:center;position:relative;color:#fff;overflow:hidden}
+.thumb.vert{aspect-ratio:4/3}
+.thumb .ph{border:2px dashed rgba(255,255,255,.7);padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;position:absolute;top:14px;left:14px}
+.phone{width:78px;height:140px;border:3px solid #fff;border-radius:16px;display:grid;place-items:center;transition:.4s}
+.card:hover .phone{transform:rotate(-6deg) scale(1.08)}
+.phone:after{content:"";border-left:18px solid #fff;border-block:11px solid transparent;margin-left:5px}
+.screen{width:70%;height:62%;border:3px solid #fff;border-radius:10px;display:grid;grid-template-rows:14px 1fr;transition:.4s}
+.screen:before{content:"";border-bottom:3px solid #fff}
+.card:hover .screen{transform:scale(1.07)}
+.meta{padding:18px 20px 22px}
+.meta small{color:var(--acc);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.meta h3{font-size:22px;margin:6px 0 6px}
+.meta p{font-size:14px;color:var(--mut)}
+.note{margin-top:22px;font-size:13px;color:var(--mut);border:1.5px dashed var(--line);padding:12px 16px;border-radius:12px}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
+.step{padding:28px 24px;border-right:1.5px solid var(--ink);transition:.3s;cursor:default}
+.step:last-child{border:0}
+.step:hover{background:var(--ink);color:var(--bg)}
+.step:hover p{color:#bdb8aa}
+.step b{font:700 14px Georgia,serif;color:var(--acc)}
+.step h3{font-size:26px;margin:30px 0 10px}
+.step p{font-size:14px;color:var(--mut)}
+/* pricing */
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;transition:.3s}
+.pk:hover{transform:translateY(-6px)}
+.pk.feat{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pk .badge{align-self:flex-start;background:var(--acc);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:99px;margin-bottom:12px}
+.pk h3{font-size:28px}
+.pk .p{font:700 32px Georgia,serif;margin:12px 0 4px}
+.pk .p small{font:400 13px Arial;color:var(--mut)}
+.pk ul{list-style:none;margin:18px 0 26px;flex:1}
+.pk li{padding:7px 0;border-bottom:1px solid rgba(128,128,128,.25);font-size:14px}
+.pk li:before{content:"✓ ";color:var(--acc);font-weight:700}
+.pk .btn{justify-content:center}.pk.feat .btn{border-color:var(--bg);color:var(--bg)}
+/* testimonials */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.tq{border:1.5px dashed var(--line);border-radius:var(--r);padding:28px}
+.tq q{font:italic 20px/1.4 Georgia,serif;display:block;margin-bottom:18px;color:var(--mut)}
+.tq b{font-size:14px}.tq small{display:block;color:var(--mut)}
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:30px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact h2{font-size:clamp(36px,5vw,64px)}
+.contact h2 em{color:var(--acc)}
+.contact p{color:#bdb8aa}
+.links{margin-top:26px;display:flex;flex-direction:column;gap:8px;font-weight:600}
+.links a:hover{color:var(--acc)}
+form{display:grid;gap:14px}
+label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#bdb8aa;display:grid;gap:6px;font-weight:600}
+input,select,textarea{font:inherit;background:#23211b;border:1px solid #3d3a30;color:var(--bg);padding:12px 14px;border-radius:12px;width:100%;text-transform:none;letter-spacing:0;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn{background:var(--acc);border-color:var(--acc);color:#fff;justify-content:center}
+form .btn:hover{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+footer{padding:36px 0;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+ nav ul{display:none}
+ .hero .grid,.svc,.contact{grid-template-columns:1fr}
+ .work,.price,.tg{grid-template-columns:1fr}
+ .proc{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
+ .stats{grid-template-columns:1fr 1fr}
+ .tabs{flex-direction:row;flex-wrap:wrap}.tab{padding:10px 14px;font-size:14px}.tab span{display:none}
+ .panel ul{grid-template-columns:1fr}.panel{padding:26px}
+ .contact{padding:32px 22px}.two{grid-template-columns:1fr}
+ .portrait{max-width:340px}.t1{left:-6px}.t2{right:-6px}
+ section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="#top" class="logo">Ayushman<i>.</i>Singh</a>
+  <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="btn" style="padding:9px 18px;font-size:14px">Get a quote</a>
+</div><div class="prog" id="prog"></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="grid">
+    <div>
+      <span class="eyebrow">Freelance · App · Web · Content</span>
+      <h1>I build things people <em>scroll</em>, <span class="rot" id="rot"><span>tap</span></span> and remember.</h1>
+      <p>Apps, websites and short-form content for businesses that want to look sharp and grow online. One freelancer, one point of contact, from idea to published.</p>
+      <div class="cta"><a class="btn pri" href="#contact">Start a project →</a><a class="btn" href="#work">See selected work</a></div>
+    </div>
+    <div class="portrait rv">
+      <img src="assets/photo.jpg" alt="Ayushman Singh">
+      <div class="tag t1"><b>●</b> Available for new projects</div>
+      <div class="tag t2">Replies within 24h</div>
+    </div>
+  </div>
+  <div class="stats rv">
+    <div class="stat"><b data-n="6">0</b><small>Services under one roof</small></div>
+    <div class="stat"><b data-n="24" data-s="h">0</b><small>Reply time</small></div>
+    <div class="stat"><b data-n="1" data-s=":1">0</b><small>Point of contact, no agency layers</small></div>
+    <div class="stat"><b data-n="100" data-s="%">0</b><small>Revisions until you're happy*</small></div>
+  </div>
+</div>
+<div class="mq"><div id="mq"></div></div>
+</header>
+
+<section id="services"><div class="wrap">
+  <span class="eyebrow">What I do</span>
+  <h2 class="rv">Six ways I can help<br>your business grow.</h2>
+  <p class="lead rv">Pick one, or combine them. Most clients start with a website or a batch of reels and add from there.</p>
+  <div class="svc rv">
+    <div class="tabs" id="tabs"></div>
+    <div class="panel" id="panel"></div>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:20px"><div class="wrap">
+  <span class="eyebrow">Selected work</span>
+  <h2 class="rv">Proof, not promises.</h2>
+  <div class="filters" id="filters"></div>
+  <div class="work" id="workgrid"></div>
+  <p class="note">Placeholders: each card below marked <b>SAMPLE SLOT</b> is where a real project, screenshot or reel goes. Replace the cards in the <code>WORK</code> list in <code>index.html</code> (see README).</p>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <span class="eyebrow">How we work</span>
+  <h2 class="rv">Simple from first message to launch.</h2>
+  <div class="proc rv">
+    <div class="step"><b>01</b><h3>Brief</h3><p>A short call or message to understand your business, audience and goals. Free, no pressure.</p></div>
+    <div class="step"><b>02</b><h3>Plan</h3><p>Clear scope, timeline and price in writing before any work starts.</p></div>
+    <div class="step"><b>03</b><h3>Create</h3><p>Drafts shared early so you can steer. Feedback rounds are built into every package.</p></div>
+    <div class="step"><b>04</b><h3>Launch</h3><p>Final files, publishing support and a handover so you're never stuck.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing" style="padding-top:20px"><div class="wrap">
+  <span class="eyebrow">Packages</span>
+  <h2 class="rv">Starting points, tailored to you.</h2>
+  <p class="lead rv">Placeholder prices, shown as "from". Every project is quoted to fit, so tell me what you need below.</p>
+  <div class="price rv">
+    <div class="pk"><h3>Content Starter</h3><div class="p">₹ —<small> / from</small></div><small style="color:var(--mut)">Reels, UGC & social posts</small>
+      <ul><li>4 short reels per month</li><li>Script, shoot or edit, captions</li><li>Cover designs</li><li>1 revision round</li></ul><a class="btn" href="#contact" data-pick="Social media content">Get a quote</a></div>
+    <div class="pk feat"><span class="badge">MOST POPULAR</span><h3>Launch Site</h3><div class="p">₹ —<small> / from</small></div><small style="color:#bdb8aa">Website for your business</small>
+      <ul><li>Custom responsive design</li><li>Up to 5 sections/pages</li><li>Contact form & WhatsApp link</li><li>Basic SEO and fast loading</li><li>2 revision rounds</li></ul><a class="btn" href="#contact" data-pick="Web design">Get a quote</a></div>
+    <div class="pk"><h3>App & Brand</h3><div class="p">₹ —<small> / from</small></div><small style="color:var(--mut)">App design or build + launch content</small>
+      <ul><li>UI/UX design for your app</li><li>Interactive prototype</li><li>Launch reel + UGC ad set</li><li>Hand-off for developers</li></ul><a class="btn" href="#contact" data-pick="App development / design">Get a quote</a></div>
+  </div>
+</div></section>
+
+<section id="proof" style="padding-top:20px"><div class="wrap">
+  <span class="eyebrow">Kind words</span>
+  <h2 class="rv">What clients say.</h2>
+  <div class="tg rv">
+    <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
+    <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
+    <div class="tq"><q>Testimonial placeholder: add a real client quote here.</q><b>Client name</b><small>Business, city</small></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact rv">
+    <div>
+      <span class="eyebrow">Let's talk</span>
+      <h2>Have a project?<br>Let's make it <em>happen.</em></h2>
+      <p style="margin-top:18px">Tell me a little about your business and what you need. I'll reply with ideas and a quote within 24 hours.</p>
+      <div class="links">
+        <a href="mailto:ayushmansingh2606@gmail.com">✉ ayushmansingh2606@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ayushman2608" target="_blank" rel="noopener">in linkedin.com/in/ayushman2608</a>
+      </div>
+    </div>
+    <form id="qf">
+      <div class="two"><label>Your name<input name="n" required></label><label>Business<input name="b"></label></div>
+      <label>Service<select name="s" id="sel"></select></label>
+      <div class="two"><label>Budget<select name="bd"><option>Not sure yet</option><option>Under ₹10k</option><option>₹10k – ₹30k</option><option>₹30k – ₹1L</option><option>₹1L+</option></select></label>
+      <label>Timeline<select name="t"><option>Flexible</option><option>Within 2 weeks</option><option>Within a month</option></select></label></div>
+      <label>About the project<textarea name="m" rows="4" placeholder="What do you do, and what would you like to achieve?"></textarea></label>
+      <button class="btn" type="submit">Send enquiry →</button>
+      <small style="color:#bdb8aa;text-transform:none;letter-spacing:0">Opens your email app with the details filled in.</small>
+    </form>
+  </div>
+  <footer><span>© 2026 Ayushman Singh</span><span>*Within the agreed scope.</span></footer>
+</div></section>
+
+<script>
+const S=[
+ {n:"App development & design",t:"App design that feels effortless",d:"From idea to a clickable prototype or a working app, designed around how your customers actually use it.",l:["User flows & wireframes","UI design system","Interactive prototype","Developer hand-off","Android / iOS builds","Launch support"]},
+ {n:"Web design",t:"Websites that turn visitors into customers",d:"Fast, responsive, good-looking sites for businesses, creators and local brands, built to be found and to convert.",l:["Custom design, not templates","Mobile-first build","Contact & booking forms","Basic SEO set-up","Hosting & domain help","Easy handover"]},
+ {n:"Promotional Instagram reels",t:"Reels that promote, not just decorate",d:"Scroll-stopping promos for launches, offers and events, with hooks, pacing and captions tuned for Instagram.",l:["Concept & hook writing","Shooting guidance or editing","Captions, music & trends","Cover frames","Posting-time advice","Batches for the month"]},
+ {n:"UGC ads",t:"UGC-style ads that feel real",d:"Authentic, creator-style videos made for paid ads, so your product looks like a recommendation, not a billboard.",l:["Script & angles","Product demo / review style","Multiple hook variants","Vertical 9:16 formats","Ad-ready exports","Testing-friendly sets"]},
+ {n:"Social media content",t:"A feed with a point of view",d:"Consistent posts, carousels and stories that look like one brand and keep your audience coming back.",l:["Content calendar","Post & carousel design","Story templates","Caption writing","Brand-consistent look","Monthly refresh"]},
+ {n:"Reels for your business",t:"Behind-the-scenes to bestsellers",d:"Reels made around your own business: your team, products, process and customers, turned into content people follow.",l:["Day-in-the-life reels","Product showcase","Customer stories","Offer & launch reels","Reusable templates","Ongoing monthly plan"]}
+];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),sel=document.getElementById('sel');
+S.forEach((s,i)=>{const b=document.createElement('button');b.className='tab';b.innerHTML=s.n+'<span>0'+(i+1)+'</span>';b.onclick=()=>show(i);tabs.appendChild(b);sel.add(new Option(s.n));});
+sel.add(new Option("Not sure, need advice"));
+function show(i){[...tabs.children].forEach((t,j)=>t.classList.toggle('on',i===j));const s=S[i];
+ panel.classList.remove('sw');void panel.offsetWidth;panel.classList.add('sw');
+ panel.innerHTML=`<h3>${s.t}</h3><p>${s.d}</p><ul>${s.l.map(x=>`<li>${x}</li>`).join('')}</ul><div class="big">0${i+1}</div>`;}
+show(0);
+// auto-rotate tabs until user interacts
+// rotating word
+const words=["tap","share","buy","follow"],rot=document.getElementById('rot');let wi=0;
+setInterval(()=>{wi=(wi+1)%words.length;const el=rot.firstElementChild;el.style.transform='translateY(-100%)';
+ setTimeout(()=>{el.style.transition='none';el.textContent=words[wi];el.style.transform='translateY(100%)';void el.offsetWidth;el.style.transition='';el.style.transform='none'},600)},2200);
+// marquee
+document.getElementById('mq').innerHTML=Array(2).fill(["App design","Web design","Promo reels","UGC ads","Social content","Business reels"].map(x=>x+'<span>✦</span>').join('')).join('');
+// work
+const COLORS={App:"#1b3bff",Web:"#14130f",Reels:"#ff5a1f",UGC:"#c2185b",Social:"#0a7d5a"};
+/* EDIT HERE: replace these placeholders with real projects. kind: App | Web | Reels | UGC | Social.
+   Optional: link (URL to live site / Instagram reel), img (path to a screenshot in /assets). */
+const WORK=[
+ {k:"Reels",t:"Promo reel — Client name",d:"Short description of the goal and result.",type:"Instagram reel"},
+ {k:"Web",t:"Business website — Client name",d:"Short description of the goal and result.",type:"Website"},
+ {k:"App",t:"Mobile app design — Project name",d:"Short description of the goal and result.",type:"App design"},
+ {k:"UGC",t:"UGC ad set — Brand name",d:"Short description of the goal and result.",type:"UGC ad"},
+ {k:"Social",t:"Social media content — Client name",d:"Short description of the goal and result.",type:"Social content"},
+ {k:"Reels",t:"Business reel — Client name",d:"Short description of the goal and result.",type:"Instagram reel"}
+];
+const grid=document.getElementById('workgrid'),fl=document.getElementById('filters');
+["All","App","Web","Reels","UGC","Social"].forEach((f,i)=>{const c=document.createElement('button');c.className='chip'+(i?'':' on');c.textContent=f;
+ c.onclick=()=>{[...fl.children].forEach(x=>x.classList.toggle('on',x===c));[...grid.children].forEach(g=>g.classList.toggle('hide',f!=="All"&&g.dataset.k!==f))};fl.appendChild(c)});
+WORK.forEach(w=>{const a=document.createElement(w.link?'a':'div');a.className='card';a.dataset.k=w.k;if(w.link){a.href=w.link;a.target='_blank';a.rel='noopener'}
+ const vis=(w.k==="Web"||w.k==="App")?'<div class="screen"></div>':'<div class="phone"></div>';
+ const media=w.img?`<img src="${w.img}" alt="${w.t}" style="width:100%;height:100%;object-fit:cover">`:vis;
+ a.innerHTML=`<div class="thumb" style="background:${COLORS[w.k]}">${w.img?'':'<span class="ph">SAMPLE SLOT</span>'}${media}</div><div class="meta"><small>${w.type}</small><h3>${w.t}</h3><p>${w.d}</p></div>`;grid.appendChild(a)});
+// reveal + counters + progress
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+document.querySelectorAll('[data-n]').forEach(el=>{const n=+el.dataset.n,s=el.dataset.s||'';let v=0;const st=setInterval(()=>{v+=Math.max(1,Math.ceil(n/40));if(v>=n){v=n;clearInterval(st)}el.textContent=v+s},30)});
+addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+// package buttons preselect service
+document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>{sel.value=b.dataset.pick==="App development / design"?S[0].n:b.dataset.pick==="Web design"?S[1].n:S[4].n}));
+// form -> mailto
+document.getElementById('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));
+ const body=`Hi Ayushman,\n\nName: ${f.n}\nBusiness: ${f.b}\nService: ${f.s}\nBudget: ${f.bd}\nTimeline: ${f.t}\n\n${f.m}`;
+ location.href='mailto:ayushmansingh2606@gmail.com?subject='+encodeURIComponent('Project enquiry: '+f.s)+'&body='+encodeURIComponent(body)});
+</script>
+</body>
+</html>
