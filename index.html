@@ -249,7 +249,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 @keyframes eg{50%{opacity:.8}}
 .rbh.wave{animation:hop .5s 3}
 @keyframes hop{40%{translate:0 -16px}}
-.rb-lab{position:absolute;left:92px;bottom:38px;white-space:nowrap;background:var(--lime);color:var(--ink);font:700 13px var(--b);padding:9px 14px 9px 12px;border-radius:99px;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;gap:8px;align-items:center;transition:opacity .3s;pointer-events:none}
+.rb-lab{border:0;position:absolute;left:92px;bottom:38px;white-space:nowrap;background:var(--lime);color:var(--ink);font:700 13px var(--b);padding:9px 14px 9px 12px;border-radius:99px;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;gap:8px;align-items:center;transition:opacity .3s;pointer-events:auto;cursor:pointer}
 .rb-lab:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);animation:ping 2s infinite}
 .rb-bub.on~.rb-lab,.rb.open .rb-lab{opacity:0}
 .rb-bub{position:absolute;left:64px;bottom:128px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:opacity .3s,transform .3s}
@@ -447,7 +447,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 <g clip-path="url(#cR)"><g class="gl"><ellipse cx="78" cy="69" rx="13" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="78" cy="69" rx="9" ry="2.4" fill="#fff"/></g></g>
 <circle cx="24" cy="30" r="2" fill="#fff3c4" opacity=".7"/><circle cx="96" cy="30" r="2" fill="#fff3c4" opacity=".7"/>
 </svg></div></button>
-  <span class="rb-lab">Chat with Jarvis</span>
+  <button type="button" class="rb-lab" id="rbLab">Chat with Jarvis</button>
 </div>
 <div class="rb-p" id="rbP" role="dialog" aria-label="Chat with Jarvis">
   <div class="rb-h"><i>J</i><div><b>Jarvis</b><small>Jarvis.SI helper</small></div><button id="rbX" aria-label="Close chat">×</button></div>
@@ -616,7 +616,7 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
  addEventListener('pagehide',send);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')send()});
  function open(){isOpen=true;rb.classList.add('open');greeted=true;bub.classList.remove('on');P.classList.add('on');$('rbBtn').setAttribute('aria-expanded','true');if(!started){started=true;ask()}else I.focus()}
  function close(){isOpen=false;rb.classList.remove('open');P.classList.remove('on');$('rbBtn').setAttribute('aria-expanded','false');send()}
- $('rbBtn').onclick=hb.onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
+ $('rbBtn').onclick=hb.onclick=()=>isOpen?close():open();$('rbLab').onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
  F.addEventListener('submit',e=>{e.preventDefault();const v=I.value;I.value='';answer(v)});
 })();
 
