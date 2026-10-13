@@ -74,13 +74,16 @@ nav .btn{padding:10px 20px;font-size:14px}
 .phone{width:220px;height:440px;border-radius:36px;padding:10px;left:50%;top:50%;margin:-220px 0 0 -110px;z-index:3}
 .phone .scr{width:100%;height:100%;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(160deg,#ff7a45,#e8312f 55%,#6b1d4b)}
 .phone .scr:before{content:"";position:absolute;top:8px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:12px;background:#000;z-index:2}
-.hbot{left:38%;top:50%;width:250px;margin:-215px 0 0 -125px;z-index:6;background:none;border:0;cursor:pointer;padding:0;transition:none!important;-webkit-tap-highlight-color:transparent}
-.hbot:before{content:"";position:absolute;left:50%;top:42%;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.5),rgba(255,176,32,0) 66%);animation:rbg 2.6s ease-in-out infinite;pointer-events:none}
+.hbot{position:relative;display:block;margin:0 auto;width:250px;z-index:2;background:none;border:0;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent}
+.hbot:before{content:"";position:absolute;left:50%;top:44%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.45),rgba(255,176,32,0) 66%);animation:rbg 2.6s ease-in-out infinite;pointer-events:none}
 .hbot .rbh{width:250px;height:312px;filter:drop-shadow(0 26px 30px rgba(0,0,0,.6))}
 .hbot:hover .rbh{scale:1.05}
 .htag{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);white-space:nowrap;background:var(--lime);color:var(--ink);font:700 14px var(--b);padding:11px 18px;border-radius:99px;box-shadow:0 12px 26px rgba(0,0,0,.4)}
 .rb.inhero .rb-btn,.rb.inhero .rb-lab{opacity:0;pointer-events:none;visibility:hidden}
-.phone{left:auto!important;right:0;margin:-220px 0 0 0!important}
+.jx{overflow:hidden}.jx .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.jx .stage{position:relative;min-height:420px;display:grid;place-items:center;padding-bottom:30px}
+.jx h2{max-width:640px}
+.jx .stp{display:grid;gap:14px;margin:30px 0 34px;max-width:520px}.jx .stp div{display:flex;gap:14px;align-items:center;font-size:17px;color:var(--paper)}.jx .stp b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:800 15px var(--h)}
 .rbar{position:absolute;left:14px;right:14px;top:40px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}.rbar i{display:block;height:100%;width:0;background:#fff;animation:rbar 5s linear infinite}
 @keyframes rbar{to{width:100%}}
 .rside{position:absolute;right:12px;bottom:90px;display:grid;gap:14px}.rside i{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:block}.rside i:first-child{animation:pop 1.8s infinite}
@@ -266,7 +269,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
  .hero .wrap,.ct,.pick,.quiz,.mc{grid-template-columns:1fr}
  .hero{min-height:auto;padding-top:110px}
  .scene{height:480px;max-width:400px;margin:0 auto;width:100%}
- .hbot{left:36%;width:190px;margin:-170px 0 0 -95px}.hbot .rbh{width:190px;height:238px}.hbot:before{width:260px;height:260px;margin:-130px 0 0 -130px}.htag{font-size:13px;padding:9px 14px}.phone{width:170px;height:340px;margin-top:-170px!important}.chip.c1,.chip.c3{display:none}
+ .jx .wrap{grid-template-columns:1fr;gap:30px}.jx .stage{min-height:330px}.hbot{width:200px}.hbot .rbh{width:200px;height:250px}.hbot:before{width:320px;height:320px;margin:-160px 0 0 -160px}.htag{font-size:13px;padding:9px 14px}
  .brow{width:260px}.tilt{right:-4px}.c1{right:-4px}
  .sv{grid-template-columns:1fr}.sc1,.sc2,.sc3,.sc4,.sc5,.sc6{grid-column:auto}
  .s{min-height:auto}.s ul{max-height:none;opacity:1;margin-top:16px}
@@ -299,8 +302,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
       <div class="cta rv" style="--d:.24s"><a class="btn lime" data-wa="Hi, I found your website and would like to talk about a project." data-mag><svg viewBox="0 0 24 24"><use href="#wai"/></svg>Chat on WhatsApp</a><a class="btn line" href="#work" data-mag>See our work</a></div>
       <div class="who rv" style="--d:.32s"><div class="mono">AS</div><div><b>Jarvis.SI</b>Freelance design & content studio, with a small team behind it</div></div>
     </div>
-    <div class="scene" id="scene">
-      <button class="hbot" id="heroBot" type="button" aria-label="Chat with Jarvis, tell me what you need and get your demo for free"><div class="rbh" id="heroHead"></div><span class="htag">Tap me and get your <b>free demo</b></span></button>
+    <div class="scene" id="scene" aria-hidden="true">
       <div class="dev brow" data-d="14"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><i class="t"></i><i style="width:90%"></i><i style="width:60%"></i><i class="bt"></i><div class="bl"><i></i><i></i><i></i></div></div></div>
       <div class="dev phone" data-d="26"><div class="scr"><div class="rbar"><i></i></div><div class="big">Your product.<br>Their next<br>obsession.</div><div class="rside"><i></i><i></i><i></i></div><div class="rtxt"><i class="av"></i><i></i><i></i></div></div></div>
       <div class="dev tilt" data-d="40"><div class="g"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
@@ -311,6 +313,17 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
   </div>
 </header>
 <div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="jarvis" class="dark jx"><div class="wrap">
+  <div>
+    <span class="eyebrow" style="color:var(--lime)">Meet Jarvis, our helper</span>
+    <h2 class="rv">Give your requirements and get your first product demo for free</h2>
+    <div class="stp rv"><div><b>1</b>Tell Jarvis what you need, it takes a minute</div><div><b>2</b>Our team looks at your idea</div><div><b>3</b>You get a free first demo, no payment needed</div></div>
+    <a class="btn lime" id="jxGo" data-mag>Tell Jarvis what you need</a>
+  </div>
+  <div class="stage"><button class="hbot" id="heroBot" type="button" aria-label="Chat with Jarvis, tell me what you need and get your demo for free"><div class="rbh" id="heroHead"></div><span class="htag">Tap me and get your <b>free demo</b></span></button></div>
+</div></section>
+
 
 <section id="services"><div class="wrap">
   <span class="eyebrow">What we do</span>
@@ -525,7 +538,7 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
 /* robot helper */
 (function(){
  const rb=$('rb'),head=$('rbHead'),hh=$('heroHead'),hb=$('heroBot'),bot=head,bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
- hh.innerHTML=head.innerHTML;let inHero=true;
+ hh.innerHTML=head.innerHTML;let inHero=false;
  let greeted=false,isOpen=false,started=false,busy=false,done=false,step=0,raf=0,users=0,sentAt=0;
  try{greeted=sessionStorage.getItem('rbg')==='1'}catch(e){}
  const data={},log=[];
@@ -537,8 +550,8 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
  addEventListener('pointerdown',e=>look(e.clientX,e.clientY),{passive:true});
  function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}place();bub.classList.add('on');[head,hh].forEach(h=>{h.classList.add('wave');setTimeout(()=>h.classList.remove('wave'),1800)});setTimeout(()=>bub.classList.remove('on'),14000)}
  function place(){if(inHero){const a=hh.getBoundingClientRect(),b=rb.getBoundingClientRect(),w=Math.min(236,innerWidth-24);let l=a.right-b.left-30;if(a.right+w-30>innerWidth-12)l=innerWidth-12-w-b.left;if(innerWidth<700)l=Math.max(12-b.left,(innerWidth-w)/2-b.left);bub.style.left=l+'px';bub.style.bottom=(b.bottom-a.top-20)+'px';bub.style.transformOrigin='bottom left'}else{bub.style.left='';bub.style.bottom=''}}
- if('IntersectionObserver' in window)new IntersectionObserver(e=>{inHero=e[0].isIntersecting;rb.classList.toggle('inhero',inHero);bub.classList.remove('on')},{threshold:.25}).observe(document.querySelector('.hero'));rb.classList.add('inhero');
- setTimeout(greet,1400);
+ if('IntersectionObserver' in window)new IntersectionObserver(e=>{inHero=e[0].isIntersecting;rb.classList.toggle('inhero',inHero);bub.classList.remove('on');if(inHero)setTimeout(()=>{if(inHero)greet()},600)},{threshold:.35}).observe($('jarvis'));rb.classList.remove('inhero');inHero=false;
+ $('jxGo').onclick=open;
  /* guided chat */
  const SV=["App design","Website","Promo reels","UGC ads","Social content","Business reels","Not sure yet"];
  const FLOW=[
