@@ -76,12 +76,27 @@ nav .btn{padding:10px 20px;font-size:14px}
 .phone .scr:before{content:"";position:absolute;top:8px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:12px;background:#000;z-index:2}
 .hbot{position:relative;display:block;margin:0 auto;width:250px;z-index:2;background:none;border:0;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent}
 .hbot:before{content:"";position:absolute;left:50%;top:44%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.45),rgba(255,176,32,0) 66%);animation:rbg 2.6s ease-in-out infinite;pointer-events:none}
-.hbot .rbh{width:250px;height:312px;filter:drop-shadow(0 26px 30px rgba(0,0,0,.6))}
+.hbot .rbh{width:250px;height:312px;perspective:900px;filter:none;animation:none}
+.j3w{position:absolute;inset:0;transform-style:preserve-3d;animation:jsw 7s ease-in-out infinite}
+@keyframes jsw{0%,100%{transform:translateY(0) rotateY(-9deg)}50%{transform:translateY(-10px) rotateY(9deg)}}
+.j3{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .18s ease-out}
+.ly{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.vz{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 9%;transition:transform .75s cubic-bezier(.3,1.4,.5,1)}
+.j3.op .vz{transform:rotateX(-78deg)}
+.j3 .gl,.j3 .gc{transition:transform .09s linear}
+.j3 .bk{transform-box:fill-box;transform-origin:center;animation:blk 5s infinite}
+@keyframes blk{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
+.jsh{position:absolute;left:50%;bottom:-24px;width:200px;height:34px;margin-left:-100px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.65),rgba(0,0,0,0) 70%);transform:translateZ(-80px);animation:jshd 7s ease-in-out infinite}
+@keyframes jshd{50%{transform:translateZ(-80px) scale(.85);opacity:.7}}
+.jcap{min-height:48px;margin:46px auto 0;max-width:380px;text-align:center;font:600 18px/1.35 var(--h);color:var(--paper)}
+.jq{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:460px;margin:14px auto 0}
+.jq button{font:600 13px var(--b);padding:9px 15px;border-radius:99px;border:1.5px solid var(--lime);background:none;color:var(--lime);cursor:pointer;transition:.2s}
+.jq button:hover{background:var(--lime);color:var(--ink);transform:translateY(-2px)}
 .hbot:hover .rbh{scale:1.05}
-.htag{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);white-space:nowrap;background:var(--lime);color:var(--ink);font:700 14px var(--b);padding:11px 18px;border-radius:99px;box-shadow:0 12px 26px rgba(0,0,0,.4)}
+
 .rb.inhero .rb-btn,.rb.inhero .rb-lab{opacity:0;pointer-events:none;visibility:hidden}
 .jx{overflow:hidden}.jx .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
-.jx .stage{position:relative;min-height:420px;display:grid;place-items:center;padding-bottom:30px}
+.jx .stage{position:relative;min-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 0}
 .jx h2{max-width:640px}
 .jx .stp{display:grid;gap:14px;margin:30px 0 34px;max-width:520px}.jx .stp div{display:flex;gap:14px;align-items:center;font-size:17px;color:var(--paper)}.jx .stp b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:800 15px var(--h)}
 .rbar{position:absolute;left:14px;right:14px;top:40px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}.rbar i{display:block;height:100%;width:0;background:#fff;animation:rbar 5s linear infinite}
@@ -321,7 +336,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
     <div class="stp rv"><div><b>1</b>Tell Jarvis what you need, it takes a minute</div><div><b>2</b>Our team looks at your idea</div><div><b>3</b>You get a free first demo, no payment needed</div></div>
     <a class="btn lime" id="jxGo" data-mag>Tell Jarvis what you need</a>
   </div>
-  <div class="stage"><button class="hbot" id="heroBot" type="button" aria-label="Chat with Jarvis, tell me what you need and get your demo for free"><div class="rbh" id="heroHead"></div><span class="htag">Tap me and get your <b>free demo</b></span></button></div>
+  <div class="stage"><button class="hbot" id="heroBot" type="button" aria-label="Chat with Jarvis, tell me what you need and get your demo for free"><div class="rbh" id="heroHead"></div></button><p class="jcap" id="jcap" aria-live="polite">Hi, I'm Jarvis. What do you need?</p><div class="jq" id="jq"></div></div>
 </div></section>
 
 
@@ -538,22 +553,43 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
 /* robot helper */
 (function(){
  const rb=$('rb'),head=$('rbHead'),hh=$('heroHead'),hb=$('heroBot'),bot=head,bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
- hh.innerHTML=head.innerHTML;let inHero=false;
+ let inHero=false;
  let greeted=false,isOpen=false,started=false,busy=false,done=false,step=0,raf=0,users=0,sentAt=0;
  try{greeted=sessionStorage.getItem('rbg')==='1'}catch(e){}
  const data={},log=[];
  /* eyes follow the cursor */
- function look(x,y){const hs=[head,hh];for(const hd of hs){const r=hd.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260),nx=dx/d*m,ny=dy/d*m;
+ function look(x,y){const hs=[head];{const hd=head;const r=hd.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260),nx=dx/d*m,ny=dy/d*m;
   hd._n=[nx,ny]}
-  if(!raf)raf=requestAnimationFrame(()=>{raf=0;hs.forEach(hd=>{const [nx,ny]=hd._n;hd.style.transform=`perspective(300px) rotateY(${nx*16}deg) rotateX(${-ny*11}deg)`;hd.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*6}px,${ny*1.6}px)`)})})}
+  {const r2=hh.getBoundingClientRect(),ex=x-(r2.left+r2.width/2),ey=y-(r2.top+r2.height/2),dd=Math.hypot(ex,ey)||1,mm=Math.min(1,dd/380);if(inHero)visor(dd<300);hh._n=[ex/dd*mm,ey/dd*mm]}
+  if(!raf)raf=requestAnimationFrame(()=>{raf=0;if(hh._n)rig(hh._n[0],hh._n[1]);hs.forEach(hd=>{const [nx,ny]=hd._n;hd.style.transform=`perspective(300px) rotateY(${nx*16}deg) rotateX(${-ny*11}deg)`;hd.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*6}px,${ny*1.6}px)`)})})}
  addEventListener('pointermove',e=>{look(e.clientX,e.clientY);if(greeted||isOpen)return;const r=(inHero?hh:head).getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<(inHero?220:150))greet()},{passive:true});
  addEventListener('pointerdown',e=>look(e.clientX,e.clientY),{passive:true});
- function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}place();bub.classList.add('on');[head,hh].forEach(h=>{h.classList.add('wave');setTimeout(()=>h.classList.remove('wave'),1800)});setTimeout(()=>bub.classList.remove('on'),14000)}
+ function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}if(inHero){cap.textContent="Hi! Tell me what you need and get your demo for free.";setTimeout(()=>{cap.textContent=CAP},7000)}else{place();bub.classList.add('on')}[head,hh].forEach(h=>{h.classList.add('wave');setTimeout(()=>h.classList.remove('wave'),1800)});if(inHero){visor(true);setTimeout(()=>visor(false),3500)}setTimeout(()=>bub.classList.remove('on'),14000)}
  function place(){if(inHero){const a=hh.getBoundingClientRect(),b=rb.getBoundingClientRect(),w=Math.min(236,innerWidth-24);let l=a.right-b.left-30;if(a.right+w-30>innerWidth-12)l=innerWidth-12-w-b.left;if(innerWidth<700)l=Math.max(12-b.left,(innerWidth-w)/2-b.left);bub.style.left=l+'px';bub.style.bottom=(b.bottom-a.top-20)+'px';bub.style.transformOrigin='bottom left'}else{bub.style.left='';bub.style.bottom=''}}
  if('IntersectionObserver' in window)new IntersectionObserver(e=>{inHero=e[0].isIntersecting;rb.classList.toggle('inhero',inHero);bub.classList.remove('on');if(inHero)setTimeout(()=>{if(inHero)greet()},600)},{threshold:.35}).observe($('jarvis'));rb.classList.remove('inhero');inHero=false;
  $('jxGo').onclick=open;
  /* guided chat */
  const SV=["App design","Website","Promo reels","UGC ads","Social content","Business reels","Not sure yet"];
+ /* 3D helmet in the Jarvis section */
+ const P1="M60 3C90 3 108 22 110 54L108 102C106 126 88 146 60 148 32 146 14 126 12 102L10 54C12 22 30 3 60 3Z",P2="M60 11C84 11 99 27 101 55L99 99C97 119 83 137 60 141 37 137 23 119 21 99L19 55C21 27 36 11 60 11Z";
+ const mk=(z,inner,cls)=>`<svg class="ly ${cls||''}" style="transform:translateZ(${z}px)" viewBox="0 0 120 150" aria-hidden="true">${inner}</svg>`;
+ let lay='';
+ for(let k=0;k<16;k++){const z=-70+k*4,t=k/15;lay+=mk(z,`<path d="${P1}" fill="rgb(${Math.round(60+t*80)},${Math.round(6+t*10)},${Math.round(10+t*12)})"/>`)}
+ lay+=mk(0,`<path d="${P1}" fill="url(#gR)" stroke="#4a070c" stroke-width="1.5"/><path d="M44 6H76L72 26H48Z" fill="#9c1017" stroke="#4a070c" stroke-width="1.5"/><path d="M50 12H70M52 17H68" stroke="#4a070c" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="30" r="2" fill="#fff3c4" opacity=".7"/><circle cx="96" cy="30" r="2" fill="#fff3c4" opacity=".7"/>`);
+ lay+=mk(6,`<path d="${P2}" fill="#14090c"/><g class="gc"><circle cx="42" cy="68" r="9" fill="#7fd0ff" filter="url(#fg)"/><circle cx="78" cy="68" r="9" fill="#7fd0ff" filter="url(#fg)"/><g class="bk"><ellipse cx="42" cy="68" rx="5.5" ry="7" fill="#fff"/><ellipse cx="78" cy="68" rx="5.5" ry="7" fill="#fff"/></g><path d="M52 98Q60 104 68 98" stroke="#7fd0ff" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>`);
+ let vz='';
+ for(let k=0;k<3;k++)vz+=mk(8+k*2,`<path d="${P2}" fill="url(#gG)" stroke="#8a5a0a" stroke-width="1.5"/>`);
+ vz+=mk(14,`<path d="${P2}" fill="url(#gS)"/><path d="M22 88L42 112 60 118 78 112 98 88" fill="none" stroke="#7a1015" stroke-width="3" stroke-linejoin="round"/><path d="M38 124L60 131 82 124" fill="none" stroke="#7a1015" stroke-width="2.5" stroke-linecap="round"/><path d="M60 80V104" stroke="#a86a0d" stroke-width="1.5" opacity=".6"/><path d="M27 63L55 67 53 75 30 72Z" fill="#0b1220" stroke="#8a5a0a" stroke-width="1.5"/><path d="M93 63L65 67 67 75 90 72Z" fill="#0b1220" stroke="#8a5a0a" stroke-width="1.5"/>`);
+ vz+=mk(16,`<g class="gl"><ellipse cx="41" cy="69.5" rx="12" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="41" cy="69.5" rx="8" ry="1.9" fill="#fff"/><ellipse cx="79" cy="69.5" rx="12" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="79" cy="69.5" rx="8" ry="1.9" fill="#fff"/></g>`);
+ hh.innerHTML=`<div class="j3w"><div class="j3" id="j3">${lay}<div class="vz">${vz}</div></div></div><div class="jsh"></div>`;
+ const j3=$('j3');let vOpen=false;
+ function rig(nx,ny){j3.style.transform=`rotateY(${nx*34}deg) rotateX(${-ny*22}deg)`;j3.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*5}px,${ny*1.4}px)`);j3.querySelectorAll('.gc').forEach(g=>g.style.transform=`translate(${nx*4}px,${ny*3}px)`)}
+ function visor(o){if(vOpen===o)return;vOpen=o;j3.classList.toggle('op',o)}
+ const cap=$('jcap'),CAP="Hi, I'm Jarvis. What do you need?",SAY={"App design":"An app? Great. Let's make it easy to use.","Website":"A website that brings you customers. Love it.","Promo reels":"Reels that stop the scroll. Good choice.","UGC ads":"Real-looking ads that people trust.","Social content":"Posts that keep your page alive.","Business reels":"Your business, on camera. Nice.","Not sure yet":"No problem, I'll help you decide."};
+ function pick(l){open();const t=setInterval(()=>{if(!busy&&step===0&&M.querySelector('.b')){clearInterval(t);answer(l)}},250);setTimeout(()=>clearInterval(t),6000)}
+ const jq=$('jq');SV.forEach(l=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.onmouseenter=b.onfocus=()=>{cap.textContent=SAY[l];visor(true)};b.onmouseleave=b.onblur=()=>{cap.textContent=CAP};b.onclick=()=>pick(l);jq.appendChild(b)});
+ hb.addEventListener('mouseenter',()=>{cap.textContent="Hey! Click me and tell me what you need.";visor(true)});hb.addEventListener('mouseleave',()=>{cap.textContent=CAP});
+
  const FLOW=[
   {q:"Hi! I'm Jarvis, the Jarvis.SI helper. Tell me what you need and get your demo for free. What can we help you with?",k:'need',c:SV},
   {q:"Nice. Tell me a little about your business. What do you do?",k:'business',skip:1},
