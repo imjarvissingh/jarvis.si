@@ -210,6 +210,52 @@ footer a:hover{color:var(--lime)}
 .fwa:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:rip 2.2s infinite}
 @keyframes rip{to{transform:scale(1.5);opacity:0}}
 noscript{display:block;padding:20px;text-align:center;background:var(--lime);color:var(--ink)}
+/* robot helper */
+.rb{position:fixed;left:18px;bottom:18px;z-index:95}
+.rb-btn{background:none;border:0;cursor:pointer;padding:0;display:block;-webkit-tap-highlight-color:transparent}
+.rbot{position:relative;width:76px;height:96px;animation:rbf 4s ease-in-out infinite;transition:transform .3s}
+.rb-btn:hover .rbot{transform:scale(1.08) rotate(-3deg)}
+@keyframes rbf{50%{translate:0 -6px}}
+.rbot .ant{position:absolute;left:50%;top:9px;width:3px;height:10px;margin-left:-1.5px;background:#cfcdc4}
+.rbot .ant:before{content:"";position:absolute;top:-9px;left:-5px;width:13px;height:13px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime);animation:ping 2s infinite}
+.rbot .head{position:absolute;left:3px;top:17px;width:70px;height:54px;border-radius:26px;background:#f3f1ea;box-shadow:0 8px 20px rgba(0,0,0,.4),inset 0 -4px 0 rgba(0,0,0,.08);transition:transform .15s}
+.rbot .face{position:absolute;inset:7px 6px;border-radius:20px;background:#0a0a0b;overflow:hidden}
+.rbot .eyes{position:absolute;left:0;right:0;top:11px;display:flex;justify-content:center;gap:14px;transition:transform .08s linear}
+.rbot .eye{width:11px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(200,255,62,.7);animation:blink 5s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.rbot .mouth{position:absolute;left:50%;bottom:6px;width:12px;height:6px;margin-left:-6px;border-bottom:2.5px solid var(--lime);border-radius:0 0 12px 12px}
+.rbot .ch{position:absolute;bottom:8px;width:6px;height:6px;border-radius:50%;background:rgba(255,106,61,.65)}.rbot .ch.l{left:4px}.rbot .ch.r{right:4px}
+.rbot .bd{position:absolute;left:16px;top:68px;width:44px;height:26px;border-radius:14px 14px 18px 18px;background:#e4e1d6;box-shadow:0 8px 16px rgba(0,0,0,.35)}
+.rbot .bd:after{content:"";position:absolute;left:50%;top:8px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+.rbot .arm{position:absolute;top:70px;width:10px;height:18px;border-radius:6px;background:#e4e1d6;transform-origin:50% 2px}.rbot .arm.l{left:7px}.rbot .arm.r{right:7px}
+.rbot.wave .arm.r{animation:wv .55s 4}
+@keyframes wv{50%{transform:rotate(-55deg)}}
+.rb-bub{position:absolute;left:58px;bottom:84px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:.3s}
+.rb-bub.on{opacity:1;transform:none;pointer-events:auto}
+.rb-bub b{font:700 15px var(--h);display:block;margin-bottom:4px}
+.rb-bub .row{display:flex;gap:8px;margin-top:10px}
+.rb-bub button{font:600 13px var(--b);border:0;border-radius:99px;padding:8px 14px;cursor:pointer}
+.rb-bub .y{background:var(--ink);color:var(--lime)}.rb-bub .n{background:#ecebe4;color:var(--ink)}
+.rb-p{position:fixed;left:18px;bottom:124px;z-index:96;width:350px;max-width:calc(100vw - 36px);height:470px;max-height:calc(100vh - 150px);background:var(--ink2);border:1px solid var(--lined);color:var(--paper);border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden;transform-origin:bottom left}
+.rb-p.on{display:flex;animation:up .35s cubic-bezier(.2,.7,.2,1)}
+.rb-h{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--lined);background:var(--ink)}
+.rb-h i{width:36px;height:36px;border-radius:12px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:800 14px var(--h);font-style:normal}
+.rb-h b{font:700 15px var(--h);display:block;line-height:1.2}.rb-h small{color:var(--mutd);font-size:12px}
+.rb-h button{margin-left:auto;background:none;border:0;color:var(--mutd);font-size:24px;cursor:pointer;line-height:1}
+.rb-m{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.rb-m .m{max-width:84%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.45;word-break:break-word;animation:up .3s}
+.rb-m .b{background:#26262c;border-bottom-left-radius:4px;align-self:flex-start}
+.rb-m .u{background:var(--lime);color:var(--ink);border-bottom-right-radius:4px;align-self:flex-end;font-weight:500}
+.rb-m .t{align-self:flex-start;background:#26262c;padding:12px 14px;border-radius:16px;display:flex;gap:4px}.rb-m .t i{width:6px;height:6px;border-radius:50%;background:var(--mutd);animation:ty 1s infinite}.rb-m .t i:nth-child(2){animation-delay:.15s}.rb-m .t i:nth-child(3){animation-delay:.3s}
+@keyframes ty{40%{transform:translateY(-4px);background:var(--lime)}}
+.rb-c{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 10px}
+.rb-c button,.rb-c a{font:600 13px var(--b);padding:8px 14px;border-radius:99px;border:1.5px solid var(--lime);background:none;color:var(--lime);cursor:pointer;transition:.2s}
+.rb-c button:hover,.rb-c a:hover{background:var(--lime);color:var(--ink)}.rb-c a.wa{background:var(--lime);color:var(--ink)}
+.rb-n{font-size:11px;color:var(--mutd);padding:0 16px 8px;line-height:1.4}
+.rb-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--lined);background:var(--ink)}
+.rb-f input{flex:1;border-radius:99px;padding:11px 16px;font-size:14px}
+.rb-f button{width:42px;height:42px;border-radius:50%;border:0;background:var(--lime);color:var(--ink);font-size:18px;cursor:pointer;flex:none}
+@media(max-width:960px){.rb{left:12px;bottom:12px}.rbot{transform-origin:bottom left;scale:.85}.rb-p{left:12px;right:12px;width:auto;max-width:none;bottom:112px;height:min(70vh,500px)}.rb-bub{left:50px;width:210px}.fwa{right:14px;bottom:14px}}
 @media(max-width:960px){
  nav ul{display:none}
  section{padding:80px 0}
@@ -342,6 +388,18 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 
 <a class="fwa" data-wa="Hi, I would like to talk about a project." aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><use href="#wai"/></svg></a>
 
+<div class="rb" id="rb">
+  <div class="rb-bub" id="rbBub"><b>Hi, I'm Jarvi!</b>Looking for an app, website or content for your business? Tell me what you need.<div class="row"><button class="y" id="rbYes">Let's chat</button><button class="n" id="rbNo">Not now</button></div></div>
+  <button class="rb-btn" id="rbBtn" aria-label="Chat with Jarvi, our helper" aria-expanded="false"><div class="rbot" id="rbot"><div class="ant"></div><div class="head" id="rbHead"><div class="face"><div class="eyes" id="rbEyes"><span class="eye"></span><span class="eye"></span></div><span class="ch l"></span><span class="ch r"></span><span class="mouth"></span></div></div><div class="arm l"></div><div class="arm r"></div><div class="bd"></div></div></button>
+</div>
+<div class="rb-p" id="rbP" role="dialog" aria-label="Chat with Jarvi">
+  <div class="rb-h"><i>J</i><div><b>Jarvi</b><small>Jarvis.SI helper</small></div><button id="rbX" aria-label="Close chat">×</button></div>
+  <div class="rb-m" id="rbM" aria-live="polite"></div>
+  <div class="rb-c" id="rbC"></div>
+  <div class="rb-n">Your chat is shared with the Jarvis.SI team so we can get back to you. Please don't share passwords or card details.</div>
+  <form class="rb-f" id="rbF"><input id="rbI" placeholder="Type your answer..." autocomplete="off" maxlength="300" aria-label="Your message"><button type="submit" aria-label="Send">➤</button></form>
+</div>
+
 <div class="mo" id="mo" role="dialog" aria-modal="true" aria-label="Project details"><div class="mc" id="mc"></div></div>
 
 <script>
@@ -434,6 +492,51 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
  const m=`Hi, I'd like to talk about a project.\n\nName: ${f.n}\nBusiness: ${f.b}\nNeed: ${f.s}\nTiming: ${f.t}\n\n${f.m}`;
  if(e.submitter&&e.submitter.value==='mail')location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Project enquiry: '+f.s)}&body=${encodeURIComponent(m)}`;
  else window.open(waLink(m),'_blank','noopener')});
+
+/* robot helper */
+(function(){
+ const rb=$('rb'),bot=$('rbot'),head=$('rbHead'),eyes=$('rbEyes'),bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
+ let greeted=false,isOpen=false,started=false,busy=false,done=false,step=0,raf=0,users=0,sentAt=0;
+ try{greeted=sessionStorage.getItem('rbg')==='1'}catch(e){}
+ const data={},log=[];
+ /* eyes follow the cursor */
+ function look(x,y){const r=head.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(4.5,d/40);
+  if(!raf)raf=requestAnimationFrame(()=>{raf=0;eyes.style.transform=`translate(${dx/d*m}px,${dy/d*m*.8}px)`;head.style.transform=`rotate(${Math.max(-6,Math.min(6,dx/120))}deg)`})}
+ addEventListener('pointermove',e=>{look(e.clientX,e.clientY);if(greeted||isOpen)return;const r=bot.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<150)greet()},{passive:true});
+ addEventListener('pointerdown',e=>look(e.clientX,e.clientY),{passive:true});
+ function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}bub.classList.add('on');bot.classList.add('wave');setTimeout(()=>bot.classList.remove('wave'),2500);setTimeout(()=>bub.classList.remove('on'),14000)}
+ setTimeout(greet,matchMedia('(pointer:coarse)').matches?9000:30000);
+ /* guided chat */
+ const SV=["App design","Website","Promo reels","UGC ads","Social content","Business reels","Not sure yet"];
+ const FLOW=[
+  {q:"Hi! I'm Jarvi, the Jarvis.SI helper. What can we help you with?",k:'need',c:SV},
+  {q:"Nice. Tell me a little about your business. What do you do?",k:'business',skip:1},
+  {q:"When would you like to get started?",k:'timing',c:["As soon as possible","Within 2 weeks","Within a month","Just exploring"]},
+  {q:"Great, almost done. What's your name?",k:'name'}];
+ function add(t,w){const d=document.createElement('div');d.className='m '+w;d.textContent=t;M.appendChild(d);M.scrollTop=M.scrollHeight;log.push((w==='u'?'Visitor: ':'Jarvi: ')+t);if(w==='u')users++}
+ function say(t,cb){busy=true;const ty=document.createElement('div');ty.className='t';ty.innerHTML='<i></i><i></i><i></i>';M.appendChild(ty);M.scrollTop=M.scrollHeight;
+  setTimeout(()=>{ty.remove();add(t,'b');busy=false;cb&&cb()},500+Math.min(t.length*10,600))}
+ function chips(list){C.innerHTML='';list.forEach(l=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.onclick=()=>answer(l);C.appendChild(b)})}
+ function ask(){const f=FLOW[step];say(f.q,()=>{chips((f.c||[]).concat(f.skip?['Skip']:[]));I.focus()})}
+ function answer(t){t=(t||'').trim();if(!t||busy)return;add(t,'u');C.innerHTML='';
+  if(done){say("Thanks! Tap the WhatsApp button and the team will take it from there.",()=>wa());return}
+  const f=FLOW[step];if(t!=='Skip')data[f.k]=t;step++;step<FLOW.length?ask():finish()}
+ function wa(){C.innerHTML='';const m=`Hi, I'm ${data.name||'a visitor'}. I need: ${data.need||'help with a project'}.${data.business?' About my business: '+data.business+'.':''}${data.timing?' Timing: '+data.timing+'.':''}`;
+  const a=document.createElement('a');a.className='wa';a.href=waLink(m);a.target='_blank';a.rel='noopener';a.textContent='Send this on WhatsApp';C.appendChild(a)}
+ function finish(){done=true;say(`Thanks${data.name?', '+data.name:''}! Tap below and your details go straight to the Jarvis.SI team on WhatsApp. We'll reply with ideas and a price based on what you need.`,wa);send()}
+
+ /* email the conversation to the team through FormSubmit (confirm the activation email once) */
+ function send(){if(!users||users===sentAt)return;sentAt=users;
+  const fd=new FormData();fd.append('_subject',`Jarvis.SI chat: ${data.name||'visitor'} - ${data.need||'no service picked'}`);fd.append('_template','table');fd.append('_captcha','false');
+  fd.append('status',done?'Chat completed':'Visitor left before finishing');['name','need','business','timing'].forEach(k=>fd.append(k,data[k]||'(not given)'));
+  fd.append('transcript',log.join('\n'));fd.append('page',location.href);
+  try{fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd,headers:{Accept:'application/json'},keepalive:true}).catch(()=>{})}catch(e){}}
+ addEventListener('pagehide',send);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')send()});
+ function open(){isOpen=true;greeted=true;bub.classList.remove('on');P.classList.add('on');$('rbBtn').setAttribute('aria-expanded','true');if(!started){started=true;ask()}else I.focus()}
+ function close(){isOpen=false;P.classList.remove('on');$('rbBtn').setAttribute('aria-expanded','false');send()}
+ $('rbBtn').onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
+ F.addEventListener('submit',e=>{e.preventDefault();const v=I.value;I.value='';answer(v)});
+})();
 
 /* motion */
 $('mq').innerHTML=Array(2).fill(["App design","Web design","Promo reels","UGC ads","Social content","Business reels"].map(x=>x+'<span>✺</span>').join('')).join('');
