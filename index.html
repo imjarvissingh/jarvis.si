@@ -213,30 +213,27 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 /* robot helper */
 .rb{position:fixed;left:18px;bottom:18px;z-index:95}
 .rb-btn{background:none;border:0;cursor:pointer;padding:0;display:block;-webkit-tap-highlight-color:transparent}
-.rbot{position:relative;width:76px;height:96px;animation:rbf 4s ease-in-out infinite;transition:transform .3s}
-.rb-btn:hover .rbot{transform:scale(1.08) rotate(-3deg)}
-@keyframes rbf{50%{translate:0 -6px}}
-.rbot .ant{position:absolute;left:50%;top:9px;width:3px;height:10px;margin-left:-1.5px;background:#cfcdc4}
-.rbot .ant:before{content:"";position:absolute;top:-9px;left:-5px;width:13px;height:13px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime);animation:ping 2s infinite}
-.rbot .head{position:absolute;left:3px;top:17px;width:70px;height:54px;border-radius:26px;background:#f3f1ea;box-shadow:0 8px 20px rgba(0,0,0,.4),inset 0 -4px 0 rgba(0,0,0,.08);transition:transform .15s}
-.rbot .face{position:absolute;inset:7px 6px;border-radius:20px;background:#0a0a0b;overflow:hidden}
-.rbot .eyes{position:absolute;left:0;right:0;top:11px;display:flex;justify-content:center;gap:14px;transition:transform .08s linear}
-.rbot .eye{width:11px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(200,255,62,.7);animation:blink 5s infinite}
-@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-.rbot .mouth{position:absolute;left:50%;bottom:6px;width:12px;height:6px;margin-left:-6px;border-bottom:2.5px solid var(--lime);border-radius:0 0 12px 12px}
-.rbot .ch{position:absolute;bottom:8px;width:6px;height:6px;border-radius:50%;background:rgba(255,106,61,.65)}.rbot .ch.l{left:4px}.rbot .ch.r{right:4px}
-.rbot .bd{position:absolute;left:16px;top:68px;width:44px;height:26px;border-radius:14px 14px 18px 18px;background:#e4e1d6;box-shadow:0 8px 16px rgba(0,0,0,.35)}
-.rbot .bd:after{content:"";position:absolute;left:50%;top:8px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
-.rbot .arm{position:absolute;top:70px;width:10px;height:18px;border-radius:6px;background:#e4e1d6;transform-origin:50% 2px}.rbot .arm.l{left:7px}.rbot .arm.r{right:7px}
-.rbot.wave .arm.r{animation:wv .55s 4}
-@keyframes wv{50%{transform:rotate(-55deg)}}
-.rb-bub{position:absolute;left:58px;bottom:84px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:.3s}
+.rb-btn{position:relative}
+.rb-btn:before{content:"";position:absolute;left:50%;top:44%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,32,.55),rgba(255,176,32,0) 68%);animation:rbg 2.6s ease-in-out infinite}
+@keyframes rbg{50%{transform:scale(1.25);opacity:.6}}
+.rbh{position:relative;width:96px;height:120px;transition:transform .12s ease-out;animation:rbf 4s ease-in-out infinite;filter:drop-shadow(0 12px 14px rgba(0,0,0,.5))}
+.rbh svg{width:100%;height:100%;display:block;overflow:visible}
+@keyframes rbf{50%{translate:0 -7px}}
+.rb-btn:hover .rbh{scale:1.08}
+.rbh .gl{transition:transform .09s linear;animation:eg 3s ease-in-out infinite}
+@keyframes eg{50%{opacity:.8}}
+.rbh.wave{animation:hop .5s 3}
+@keyframes hop{40%{translate:0 -16px}}
+.rb-lab{position:absolute;left:92px;bottom:38px;white-space:nowrap;background:var(--lime);color:var(--ink);font:700 13px var(--b);padding:9px 14px 9px 12px;border-radius:99px;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;gap:8px;align-items:center;transition:opacity .3s;pointer-events:none}
+.rb-lab:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);animation:ping 2s infinite}
+.rb-bub.on~.rb-lab,.rb.open .rb-lab{opacity:0}
+.rb-bub{position:absolute;left:64px;bottom:128px;width:236px;background:#fff;color:var(--ink);padding:14px 16px;border-radius:18px 18px 18px 4px;font-size:14px;line-height:1.45;box-shadow:0 18px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(8px) scale(.94);transform-origin:bottom left;pointer-events:none;transition:.3s}
 .rb-bub.on{opacity:1;transform:none;pointer-events:auto}
 .rb-bub b{font:700 15px var(--h);display:block;margin-bottom:4px}
 .rb-bub .row{display:flex;gap:8px;margin-top:10px}
 .rb-bub button{font:600 13px var(--b);border:0;border-radius:99px;padding:8px 14px;cursor:pointer}
 .rb-bub .y{background:var(--ink);color:var(--lime)}.rb-bub .n{background:#ecebe4;color:var(--ink)}
-.rb-p{position:fixed;left:18px;bottom:124px;z-index:96;width:350px;max-width:calc(100vw - 36px);height:470px;max-height:calc(100vh - 150px);background:var(--ink2);border:1px solid var(--lined);color:var(--paper);border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden;transform-origin:bottom left}
+.rb-p{position:fixed;left:18px;bottom:150px;z-index:96;width:350px;max-width:calc(100vw - 36px);height:470px;max-height:calc(100vh - 170px);background:var(--ink2);border:1px solid var(--lined);color:var(--paper);border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden;transform-origin:bottom left}
 .rb-p.on{display:flex;animation:up .35s cubic-bezier(.2,.7,.2,1)}
 .rb-h{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--lined);background:var(--ink)}
 .rb-h i{width:36px;height:36px;border-radius:12px;background:var(--lime);color:var(--ink);display:grid;place-items:center;font:800 14px var(--h);font-style:normal}
@@ -255,7 +252,7 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 .rb-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--lined);background:var(--ink)}
 .rb-f input{flex:1;border-radius:99px;padding:11px 16px;font-size:14px}
 .rb-f button{width:42px;height:42px;border-radius:50%;border:0;background:var(--lime);color:var(--ink);font-size:18px;cursor:pointer;flex:none}
-@media(max-width:960px){.rb{left:12px;bottom:12px}.rbot{transform-origin:bottom left;scale:.85}.rb-p{left:12px;right:12px;width:auto;max-width:none;bottom:112px;height:min(70vh,500px)}.rb-bub{left:50px;width:210px}.fwa{right:14px;bottom:14px}}
+@media(max-width:960px){.rb{left:12px;bottom:12px}.rb-btn svg{width:86px}.rb-p{left:12px;right:12px;width:auto;max-width:none;bottom:140px;height:min(66vh,500px)}.rb-bub{left:44px;width:210px}.rb-lab{display:flex;left:78px;bottom:32px}.fwa{right:14px;bottom:14px}}
 @media(max-width:960px){
  nav ul{display:none}
  section{padding:80px 0}
@@ -390,7 +387,30 @@ noscript{display:block;padding:20px;text-align:center;background:var(--lime);col
 
 <div class="rb" id="rb">
   <div class="rb-bub" id="rbBub"><b>Hi, I'm Jarvi!</b>Looking for an app, website or content for your business? Tell me what you need.<div class="row"><button class="y" id="rbYes">Let's chat</button><button class="n" id="rbNo">Not now</button></div></div>
-  <button class="rb-btn" id="rbBtn" aria-label="Chat with Jarvi, our helper" aria-expanded="false"><div class="rbot" id="rbot"><div class="ant"></div><div class="head" id="rbHead"><div class="face"><div class="eyes" id="rbEyes"><span class="eye"></span><span class="eye"></span></div><span class="ch l"></span><span class="ch r"></span><span class="mouth"></span></div></div><div class="arm l"></div><div class="arm r"></div><div class="bd"></div></div></button>
+  <button class="rb-btn" id="rbBtn" aria-label="Chat with Jarvi, our helper" aria-expanded="false"><div class="rbh" id="rbHead"><svg viewBox="0 0 120 150" aria-hidden="true">
+<defs>
+<linearGradient id="gR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e53935"/><stop offset=".6" stop-color="#b3151b"/><stop offset="1" stop-color="#6d0b12"/></linearGradient>
+<linearGradient id="gG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#e9a82c"/><stop offset="1" stop-color="#a86a0d"/></linearGradient>
+<radialGradient id="gS" cx=".5" cy=".3" r=".7"><stop offset="0" stop-color="#fff3c4" stop-opacity=".7"/><stop offset="1" stop-color="#fff3c4" stop-opacity="0"/></radialGradient>
+<clipPath id="cL"><path d="M27 63 L55 67 L53 75 L30 72Z"/></clipPath>
+<clipPath id="cR"><path d="M93 63 L65 67 L67 75 L90 72Z"/></clipPath>
+<filter id="fg" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="2.2"/></filter>
+</defs>
+<path d="M60 3C90 3 108 22 110 54L108 102C106 126 88 146 60 148 32 146 14 126 12 102L10 54C12 22 30 3 60 3Z" fill="url(#gR)" stroke="#4a070c" stroke-width="1.5"/>
+<path d="M60 11C84 11 99 27 101 55L99 99C97 119 83 137 60 141 37 137 23 119 21 99L19 55C21 27 36 11 60 11Z" fill="url(#gG)" stroke="#8a5a0a" stroke-width="1.5"/>
+<path d="M60 11C84 11 99 27 101 55L99 99C97 119 83 137 60 141 37 137 23 119 21 99L19 55C21 27 36 11 60 11Z" fill="url(#gS)"/>
+<path d="M44 6H76L72 26H48Z" fill="#9c1017" stroke="#4a070c" stroke-width="1.5"/>
+<path d="M50 12H70M52 17H68" stroke="#4a070c" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 88L42 112 60 118 78 112 98 88" fill="none" stroke="#7a1015" stroke-width="3" stroke-linejoin="round"/>
+<path d="M38 124L60 131 82 124" fill="none" stroke="#7a1015" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M60 80V104" stroke="#a86a0d" stroke-width="1.5" opacity=".6"/>
+<path d="M27 63L55 67 53 75 30 72Z" fill="#0b1220" stroke="#8a5a0a" stroke-width="1.5"/>
+<path d="M93 63L65 67 67 75 90 72Z" fill="#0b1220" stroke="#8a5a0a" stroke-width="1.5"/>
+<g clip-path="url(#cL)"><g class="gl"><ellipse cx="42" cy="69" rx="13" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="42" cy="69" rx="9" ry="2.4" fill="#fff"/></g></g>
+<g clip-path="url(#cR)"><g class="gl"><ellipse cx="78" cy="69" rx="13" ry="3.4" fill="#7fd0ff" filter="url(#fg)"/><ellipse cx="78" cy="69" rx="9" ry="2.4" fill="#fff"/></g></g>
+<circle cx="24" cy="30" r="2" fill="#fff3c4" opacity=".7"/><circle cx="96" cy="30" r="2" fill="#fff3c4" opacity=".7"/>
+</svg></div></button>
+  <span class="rb-lab">Chat with Jarvi</span>
 </div>
 <div class="rb-p" id="rbP" role="dialog" aria-label="Chat with Jarvi">
   <div class="rb-h"><i>J</i><div><b>Jarvi</b><small>Jarvis.SI helper</small></div><button id="rbX" aria-label="Close chat">×</button></div>
@@ -495,17 +515,17 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
 
 /* robot helper */
 (function(){
- const rb=$('rb'),bot=$('rbot'),head=$('rbHead'),eyes=$('rbEyes'),bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
+ const rb=$('rb'),head=$('rbHead'),bot=head,bub=$('rbBub'),P=$('rbP'),M=$('rbM'),C=$('rbC'),F=$('rbF'),I=$('rbI');
  let greeted=false,isOpen=false,started=false,busy=false,done=false,step=0,raf=0,users=0,sentAt=0;
  try{greeted=sessionStorage.getItem('rbg')==='1'}catch(e){}
  const data={},log=[];
  /* eyes follow the cursor */
- function look(x,y){const r=head.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(4.5,d/40);
-  if(!raf)raf=requestAnimationFrame(()=>{raf=0;eyes.style.transform=`translate(${dx/d*m}px,${dy/d*m*.8}px)`;head.style.transform=`rotate(${Math.max(-6,Math.min(6,dx/120))}deg)`})}
+ function look(x,y){const r=head.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260),nx=dx/d*m,ny=dy/d*m;
+  if(!raf)raf=requestAnimationFrame(()=>{raf=0;head.style.transform=`perspective(300px) rotateY(${nx*16}deg) rotateX(${-ny*11}deg)`;head.querySelectorAll('.gl').forEach(g=>g.style.transform=`translate(${nx*6}px,${ny*1.6}px)`)})}
  addEventListener('pointermove',e=>{look(e.clientX,e.clientY);if(greeted||isOpen)return;const r=bot.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<150)greet()},{passive:true});
  addEventListener('pointerdown',e=>look(e.clientX,e.clientY),{passive:true});
- function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}bub.classList.add('on');bot.classList.add('wave');setTimeout(()=>bot.classList.remove('wave'),2500);setTimeout(()=>bub.classList.remove('on'),14000)}
- setTimeout(greet,matchMedia('(pointer:coarse)').matches?9000:30000);
+ function greet(){if(greeted||isOpen)return;greeted=true;try{sessionStorage.setItem('rbg','1')}catch(e){}bub.classList.add('on');bot.classList.add('wave');setTimeout(()=>bot.classList.remove('wave'),1800);setTimeout(()=>bub.classList.remove('on'),14000)}
+ setTimeout(greet,5000);
  /* guided chat */
  const SV=["App design","Website","Promo reels","UGC ads","Social content","Business reels","Not sure yet"];
  const FLOW=[
@@ -532,8 +552,8 @@ $('qf').addEventListener('submit',e=>{e.preventDefault();const f=Object.fromEntr
   fd.append('transcript',log.join('\n'));fd.append('page',location.href);
   try{fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',body:fd,headers:{Accept:'application/json'},keepalive:true}).catch(()=>{})}catch(e){}}
  addEventListener('pagehide',send);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')send()});
- function open(){isOpen=true;greeted=true;bub.classList.remove('on');P.classList.add('on');$('rbBtn').setAttribute('aria-expanded','true');if(!started){started=true;ask()}else I.focus()}
- function close(){isOpen=false;P.classList.remove('on');$('rbBtn').setAttribute('aria-expanded','false');send()}
+ function open(){isOpen=true;rb.classList.add('open');greeted=true;bub.classList.remove('on');P.classList.add('on');$('rbBtn').setAttribute('aria-expanded','true');if(!started){started=true;ask()}else I.focus()}
+ function close(){isOpen=false;rb.classList.remove('open');P.classList.remove('on');$('rbBtn').setAttribute('aria-expanded','false');send()}
  $('rbBtn').onclick=()=>isOpen?close():open();$('rbYes').onclick=open;$('rbNo').onclick=()=>bub.classList.remove('on');$('rbX').onclick=close;
  F.addEventListener('submit',e=>{e.preventDefault();const v=I.value;I.value='';answer(v)});
 })();
